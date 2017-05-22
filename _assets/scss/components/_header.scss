@@ -5,7 +5,8 @@
 .header {
     grid-area: header;
     background-image: url('../img/header.jpg');
-    height: 700px;
+    background-size: cover;
+    height: 800px;
     display: flex;
     justify-content: center;
     align-items: center;
