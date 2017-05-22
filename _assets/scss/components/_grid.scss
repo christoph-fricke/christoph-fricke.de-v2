@@ -1,19 +1,12 @@
-.grid-main {
-    display: grid;
-    grid-template-columns: auto 1000px auto;
-    grid-template-areas:
-        "header header header"
-        "appbar appbar appbar"
-        ". about ."
-        "blog blog blog"
-        ". projects ."
-        "offer offer offer"
-        ". contact ."
-        "footer footer footer";
-}
-
-.grid-about {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 0 20px;
+.grid {
+    &__main {
+        display: grid;
+        grid-template-columns: auto 1000px auto;
+        grid-template-areas: "header header header" "appbar appbar appbar" ". about ." "blog blog blog" ". projects ." "offer offer offer" ". contact ." "footer footer footer";
+    }
+    &__about {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 0 20px;
+    }
 }
