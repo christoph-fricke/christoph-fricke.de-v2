@@ -11,3 +11,9 @@
         ". contact ."
         "footer footer footer";
 }
+
+.grid-about {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 0 20px;
+}

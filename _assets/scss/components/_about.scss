@@ -1,0 +1,12 @@
+.about {
+    grid-area: about;
+    margin-bottom: 100px; 
+    &__icon {
+        margin: 10px;
+        font-size: 48px;
+        color: $icons-dark-active;
+    }
+    &__text {
+        margin: 10px;
+    }
+}
