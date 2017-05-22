@@ -1,5 +1,6 @@
-@import 'base/colors';
+@import 'base/color';
 @import 'base/elevation';
+@import 'base/transition';
 
 .appbar {
     grid-area: appbar;
@@ -16,5 +17,9 @@
         font-size: 1.5rem;
         margin: 0 10px;
         cursor: pointer;
+        transition: $transition-standard;
+        &:hover  {
+            color: $text-light-primary;
+        }
     }
 }
