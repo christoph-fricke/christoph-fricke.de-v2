@@ -1,0 +1,21 @@
+//Primary color
+$color-primary-500: #009688;
+$color-primary-700: #00796B;
+//Secondary color:
+$color-secondary-200: #FFD740;
+$color-secondary-400: #FFC400;
+//Text color dark
+$text-dark-primary: rgba(black, 0.87);
+$text-dark-secondary: rgba(black, 0.54);
+$text-dark-disabled: rgba(black, 0.38);
+$text-dark-divider: rgba(black, 0.12);
+//Text color light
+$text-light-primary: rgba(white, 1);
+$text-light-secondary: rgba(white, 0.7);
+$text-light-disabled: rgba(white, 0.5);
+$text-light-dividers: rgba(white, 0.12);
+//Color icons
+$icons-dark-active: rgba(black, 0.54);
+$icons-dark-inactive: rgba(black, 0.38);
+$icons-light-active: rgba(white, 1);
+$icons-light-inactive: rgba(white, 0.5);

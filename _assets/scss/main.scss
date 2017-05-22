@@ -1,0 +1,14 @@
+@import 'base/normalize';
+@import 'base/colors';
+@import 'base/elevation';
+* {
+    box-sizing: border-box;
+}
+
+::selection {
+    background-color: $color-secondary-200;
+}
+
+::-moz-selection {
+    background-color: $color-secondary-200;
+}
