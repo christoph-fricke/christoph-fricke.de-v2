@@ -1,6 +1,9 @@
 @import 'base/normalize';
 @import 'base/colors';
 @import 'base/elevation';
+
+@import 'components/grid';
+@import 'components/header';
 * {
     box-sizing: border-box;
 }
