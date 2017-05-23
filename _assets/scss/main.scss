@@ -5,6 +5,7 @@
 @import 'base/transition';
 @import 'base/font';
 // Components
+@import 'components/fixbar';
 @import 'components/grid';
 @import 'components/header';
 @import 'components/appbar';
@@ -19,6 +20,10 @@
 // Rules needed for everything
 * {
     box-sizing: border-box;
+}
+
+body {
+    position: relative;
 }
 
 ::selection {
