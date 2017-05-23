@@ -1,0 +1,14 @@
+.button-big {
+    background-color: $color-secondary-200;
+    color: $text-dark-primary;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 1.5rem;
+    box-shadow: $elevation-2dp;
+    border-radius: 2px;
+    padding: 0.6666em;
+    &:hover {
+        box-shadow: $elevation-8dp;
+    }
+}

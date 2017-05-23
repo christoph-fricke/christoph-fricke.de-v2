@@ -1,0 +1,14 @@
+.blog {
+    grid-area: blog;
+    background-image: url('../img/banner.jpg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 100px 0;
+    &__text {
+        font-size: 3rem;
+        color: $text-light-primary;
+        margin-bottom: 30px;
+    }
+}

@@ -1,12 +1,17 @@
 // Base stuff
 @import 'base/normalize';
 @import 'base/color';
+@import 'base/elevation';
+@import 'base/transition';
+@import 'base/font';
 // Components
 @import 'components/grid';
 @import 'components/header';
 @import 'components/appbar';
 @import 'components/card';
 @import 'components/about';
+@import 'components/blog';
+@import 'components/button';
 // Rules needed for everything
 * {
     box-sizing: border-box;
