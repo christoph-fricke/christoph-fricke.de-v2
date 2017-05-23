@@ -11,9 +11,10 @@
     &__text {
         color: $text-light-primary;
         margin: 0;
+        font-weight: 500;
         &--main {
             font-size: 3rem;
-            margin-bottom: 30px;
+            margin-bottom: 10px;
         }
         &--sub {
             font-size: 2rem;

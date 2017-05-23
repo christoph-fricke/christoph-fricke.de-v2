@@ -1,0 +1,56 @@
+.contact {
+    grid-area: contact;
+    margin-bottom: 100px;
+    &__header {
+        font-size: 500;
+        color: $text-dark-primary;
+        font-size: 2rem;
+        text-align: center;
+        margin: 0 0 30px 0;
+        &--link {
+            text-decoration: none;
+            color: rgba($color-secondary-200, 0.87);
+            cursor: pointer;
+            transition: $transition-standard;
+            &:hover {
+                text-decoration: underline;
+                color: rgba($color-secondary-400, 0.87);
+            }
+        }
+    }
+    &__input {
+        font-family: 'Roboto', 'Noto Sans', sans-serif;
+        line-height: 1.5;
+        font-size: 1rem;
+        padding: 0.5em;
+        border: 2px solid rgba(black, 0.20);
+        border-radius: 2px;
+        color: $text-dark-secondary;
+        background-color: white;
+        cursor: text;
+        outline: none;
+        transition: $transition-standard;
+        &--name {
+            grid-area: name;
+        }
+        &--email {
+            grid-area: email;
+        }
+        &--textarea {
+            grid-area: textarea;
+            resize: vertical;
+            min-height: 100px;
+        }
+        &:focus {
+            color: $text-dark-primary;
+            border: 2px solid $color-secondary-200;
+        }
+    }
+    &__submit {
+        font-family: 'Roboto', 'Noto Sans', sans-serif;
+        line-height: 1.5;
+        width: auto;
+        grid-area: submit;
+        align-self: end;
+    }
+}

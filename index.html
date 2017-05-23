@@ -66,7 +66,7 @@
         <section class="projects grid__projects">
             <i class="projects__icon material-icons">arrow_back</i>
             <div class="card" style="height:200px">
-                
+
             </div>
             <i class="projects__icon material-icons">arrow_forward</i>
         </section>
@@ -74,6 +74,19 @@
             <h3 class="offer__text offer__text--main">You are searching for your custom solution?</h3>
             <h4 class="offer__text offer__text--sub">Let me help you to get your online presence running!</h4>
         </section>
+        <section class="contact">
+            <h3 class="contact__header">Drop me an email: <a href="mailto:christoph@frickeonline.de" class="contact__header--link">christoph@frickeonline.de</a></h3>
+            <form class="contact__form grid__form" action="assets/php/sendMail.php" method="POST">
+                <input class="contact__input contact__input--name" type="text" name="name" placeholder="Name" />
+                <input class="contact__input contact__input--email" type="email" name="email" placeholder="Email" />
+                <textarea class="contact__input contact__input--textarea" name="message" placeholder="Message"></textarea>
+                <button class="contact__submit button-big" type="submit">submit</button>
+            </form>
+        </section>
+        <footer class="footer">
+            <h5 class="footer__header">Find me on:</h5>
+            <p class="footer__copy">&copy; 2017, Christoph Fricke</p>
+        </footer>
     </main>
     <!--<script src="_assets/js/main.js"></script>-->
 </body>

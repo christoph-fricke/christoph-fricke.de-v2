@@ -14,4 +14,10 @@
         grid-template-columns: auto 1fr auto;
         grid-gap: 20px;
     }
+    &__form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "name email" "textarea textarea" ". submit";
+        grid-gap: 10px;
+    }
 }
