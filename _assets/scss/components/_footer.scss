@@ -1,0 +1,29 @@
+.footer {
+    grid-area: footer;
+    background-color: $color-primary-700;
+    text-align: center;
+    padding: 50px 0 20px 0;
+    &__header {
+        font-size: 1.5rem;
+        color: $text-light-primary;
+        margin: 0;
+    }
+    &__link {
+        margin: 15px 5px 30px 5px;
+        display: inline-block;
+        text-decoration: none;
+    }
+    &__icon {
+        width: 48px;
+        height: 48px;
+        fill: $icons-light-inactive;
+        transition: $transition-standard;
+        &:hover {
+            fill: $icons-light-active;
+        }
+    }
+    &__copy {
+        margin: 0;
+        color: $text-light-primary;
+    }
+}
