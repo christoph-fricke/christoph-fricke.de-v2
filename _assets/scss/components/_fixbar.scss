@@ -1,6 +1,28 @@
 .fixbar {
     position: fixed;
+    top: 0;
+    left:0;
+    right: 0;
     height: 64px;
+    display: none;
+    align-items: center;
+    padding: 0 50px;
     background-color: $color-primary-500;
     box-shadow: $elevation-4dp;
+    &__link {
+        text-transform: uppercase;
+        text-decoration: none;
+        color: $text-light-secondary;
+        font-weight: 500;
+        font-size: 1.5rem;
+        margin: 0 10px;
+        cursor: pointer;
+        transition: $transition-standard;
+        &:hover  {
+            color: $text-light-primary;
+        }
+    }
+    &--active {
+        display: flex;
+    }
 }

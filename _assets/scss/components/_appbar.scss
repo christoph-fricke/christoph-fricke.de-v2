@@ -6,9 +6,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 150px;
+    // 
+    margin-bottom: calc(15vh - 64px);
     &__link {
         text-transform: uppercase;
+        text-decoration: none;
         color: $text-light-secondary;
         font-weight: 500;
         font-size: 1.5rem;
