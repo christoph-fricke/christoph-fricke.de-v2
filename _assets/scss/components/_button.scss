@@ -8,6 +8,8 @@
     box-shadow: $elevation-2dp;
     border-radius: 2px;
     padding: 0.6666em;
+    cursor: pointer;
+    transition: $transition-standard;
     &:hover {
         box-shadow: $elevation-8dp;
     }
