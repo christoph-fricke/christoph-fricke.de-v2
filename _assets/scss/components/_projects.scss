@@ -1,0 +1,17 @@
+.projects {
+    grid-area: projects;
+    margin-bottom: 100px;
+    &__icon {
+        font-size: 3rem;
+        padding: 5px;
+        color: $icons-dark-inactive;
+        border-radius: 100%;
+        transition: $transition-standard;
+        align-self: center;
+        cursor: pointer;
+        &:hover {
+            background-color: rgba(black, 0.12);
+            color: $icons-dark-active;
+        }
+    }
+}

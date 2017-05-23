@@ -1,0 +1,22 @@
+.offer {
+    grid-area: offer;
+    background-image: url('../img/banner.jpg');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 100px 0;
+    margin-bottom: 100px;
+    &__text {
+        color: $text-light-primary;
+        margin: 0;
+        &--main {
+            font-size: 3rem;
+            margin-bottom: 30px;
+        }
+        &--sub {
+            font-size: 2rem;
+        }
+    }
+}
