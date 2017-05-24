@@ -6,6 +6,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    @media screen and (max-width: 450px) {
+        margin-bottom: 15vh;
+    }
 }
 
 .header-text {
@@ -26,5 +29,20 @@
         font-weight: 700;
         margin: 0px;
         margin-top: -15px;
+        @media screen and (max-width: 450px) {
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .header-text__container {
+        margin: 0 20px;
+    }
+    .header-text__main {
+        font-size: 4rem;
+    }
+    .header-text__sub {
+        font-size: 1.5rem;
     }
 }

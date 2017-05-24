@@ -6,9 +6,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    // Pushes the content down so it is not visible on load.
-    // The images spans 85vh so there is 15vh minus the appbar left that has to be pushed down.
+    /* Pushes the content down so it is not visible on load.
+     The images spans 85vh so there is 15vh minus the appbar left that has to be pushed down. */
     margin-bottom: calc(15vh - 64px);
+    @media screen and (max-width: 450px) {
+        display: none;
+    }
     &__link {
         text-transform: uppercase;
         text-decoration: none;
@@ -18,7 +21,10 @@
         margin: 0 10px;
         cursor: pointer;
         transition: $transition-standard;
-        &:hover  {
+        @media screen and (max-width: 500px) {
+            font-size: 1.25rem;
+        }
+        &:hover {
             color: $text-light-primary;
         }
     }

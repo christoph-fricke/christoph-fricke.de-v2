@@ -11,6 +11,9 @@
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-gap: 20px;
+        @media screen and (max-width: 850px) {
+            grid-template-columns: 1fr;
+        }
     }
     &__projects {
         display: grid;
@@ -22,5 +25,9 @@
         grid-template-columns: 1fr 1fr;
         grid-template-areas: "name email" "textarea textarea" ". submit";
         grid-gap: 10px;
+        @media screen and (max-width: 500px) {
+            grid-template-columns: 1fr;
+            grid-template-areas: "name" "email" "textarea" "submit";
+        }
     }
 }

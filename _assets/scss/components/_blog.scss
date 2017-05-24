@@ -1,17 +1,24 @@
 .blog {
     grid-area: blog;
     background-image: url('../img/banner.jpg');
-    background-size: cover; 
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     flex-direction: column;
     padding: 100px 0;
     margin-bottom: 100px;
+    @media screen and (max-width: 1000px) {
+        padding: 100px 20px;
+    }
     &__text {
         font-weight: 500;
         font-size: 3rem;
         color: $text-light-primary;
         margin: 0 0 30px 0;
+        @media screen and (max-width: 500px) {
+            font-size: 2rem;
+        }
     }
 }
