@@ -39,7 +39,7 @@
         &--textarea {
             grid-area: textarea;
             resize: vertical;
-            min-height: 100px;
+            min-height: 200px;
         }
         &:focus {
             color: $text-dark-primary;
