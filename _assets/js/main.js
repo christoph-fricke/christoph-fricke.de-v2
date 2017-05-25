@@ -1,4 +1,11 @@
 var token;
+
+document.addEventListener("DOMContentLoaded", function () {
+    getToken();
+}, false);
+
+window.addEventListener("scroll", appBarHandler, false);
+
 /**
  * Request a security token from the server and sets it as the global variable token.
  */
@@ -13,6 +20,6 @@ function getToken() {
     };
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    getToken();
-}, false);
+function appBarHandler() {
+    console.log("User scrolled");
+}
