@@ -55,4 +55,11 @@
         grid-area: submit;
         justify-self: end;
     }
+    &__feedback {
+        grid-area: feedback;
+        align-self: center;
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 500;
+    }
 }
