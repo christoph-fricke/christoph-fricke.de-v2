@@ -99,7 +99,22 @@ function contactHandler(event) {
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         request.send("name=" + name + "&email=" + email + "&message=" + message + "&token=" + token);
         request.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {}
+            if (this.readyState == 4 && this.status == 200) {
+                switch (this.responseText) {
+                    case 1:
+                        feedbackField.innerHTML = "Success: Email has been send!";
+                        feedbackField.style.color = "rgba(76, 175, 80, 0.87)";
+                        break;
+                    case 0:
+                        feedbackField.innerHTML = "Error: Email could not been send!";
+                        feedbackField.style.color = "rgba(244, 67, 54, 0.87)";
+                        break;
+                    default:
+                        feedbackField.innerHTML = "Error: Email could not been send!";
+                        feedbackField.style.color = "rgba(244, 67, 54, 0.87)";
+                        break;
+                }
+            }
         };
     }
 }

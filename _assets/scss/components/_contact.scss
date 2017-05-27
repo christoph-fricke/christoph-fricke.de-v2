@@ -28,7 +28,7 @@
         padding: 0.5em;
         border: 2px solid rgba(black, 0.20);
         border-radius: 2px;
-        color: $text-dark-secondary;
+        color: $text-dark-primary;
         background-color: white;
         cursor: text;
         outline: none;
@@ -45,7 +45,6 @@
             min-height: 200px;
         }
         &:focus {
-            color: $text-dark-primary;
             border: 2px solid $color-secondary-200;
         }
     }
