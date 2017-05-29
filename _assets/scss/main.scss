@@ -4,6 +4,7 @@
 @import 'base/elevation';
 @import 'base/transition';
 @import 'base/font';
+@import 'base/basics';
 // Components
 @import 'components/fixbar';
 @import 'components/grid';
@@ -17,19 +18,3 @@
 @import 'components/offer';
 @import 'components/contact';
 @import 'components/footer';
-// Rules needed for everything
-* {
-    box-sizing: border-box;
-}
-
-body {
-    position: relative;
-}
-
-::selection {
-    background-color: $color-secondary-200;
-}
-
-::-moz-selection {
-    background-color: $color-secondary-200;
-}

@@ -1,0 +1,16 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    // background-color: $color-grey-100;
+}
+
+::selection {
+    background-color: $color-secondary-200;
+}
+
+::-moz-selection {
+    background-color: $color-secondary-200;
+}

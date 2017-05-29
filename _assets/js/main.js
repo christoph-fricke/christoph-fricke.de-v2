@@ -26,11 +26,11 @@ window.addEventListener("resize", function () {
 }, false);
 
 document.querySelectorAll(".fixbar__link, .appbar__link").forEach(function (element) {
-    element.addEventListener("click", function () {
+    element.addEventListener("click", function (event) {
         event.preventDefault();
         //Position of the target negative the appbar and 10px margin
         var target = document.querySelector("#" + element.getAttribute("href").slice(1)).offsetTop - 74;
-        scrollHandler(document.body, target, 400);
+        scrollHandler(document.querySelector("body"), target, 400);
     }, false);
 });
 
