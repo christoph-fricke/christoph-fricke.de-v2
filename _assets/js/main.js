@@ -38,7 +38,7 @@ function setUserScrolled() {
     userScrolled = true;
 }
 
-//Calls the appbarHandler every 100ms
+//Calls the appbarHandler every 100ms when the scroll event gets triggered
 setInterval(function () {
     if (userScrolled) {
         userScrolled = false;
