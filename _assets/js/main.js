@@ -25,6 +25,15 @@ window.addEventListener("resize", function () {
     }
 }, false);
 
+document.querySelectorAll(".fixbar__link, .appbar__link").forEach(function (element) {
+    element.addEventListener("click", function () {
+        event.preventDefault();
+        //Position of the target negative the appbar and 10px margin
+        var target = document.querySelector("#" + element.getAttribute("href").slice(1)).offsetTop - 74;
+        scrollHandler(document.body, target, 400);
+    }, false);
+});
+
 function setUserScrolled() {
     userScrolled = true;
 }
@@ -128,15 +137,6 @@ function validateName(text) {
     return pattern.test(text);
 }
 
-document.querySelectorAll(".fixbar__link, .appbar__link").forEach(function (element) {
-    element.addEventListener("click", function () {
-        event.preventDefault();
-        //Position of the target negative the appbar and 10px margin
-        var target = document.querySelector("#" + element.getAttribute("href").slice(1)).offsetTop - 74;
-        scrollHandler(document.body, target, 400);
-    }, false);
-});
-
 /**
  * Scrolls the page smoothly to a defined element
  * @param {Element} element The Element that gets scrolled
@@ -144,7 +144,9 @@ document.querySelectorAll(".fixbar__link, .appbar__link").forEach(function (elem
  * @param {number} duration Scrolling duration
  */
 function scrollHandler(element, target, duration) {
-    if (duration <= 0) return;
+    if (duration <= 0) {
+        return;
+    }
     var difference = target - element.scrollTop;
     var perTick = difference / duration * 10;
 
