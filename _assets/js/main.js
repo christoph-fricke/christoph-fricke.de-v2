@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.querySelector(".contact__form").addEventListener("submit", function (event) {
     contactHandler(event);
-}, false)
+}, false);
 
 window.addEventListener("resize", function () {
     if (window.innerWidth > 450) {
@@ -41,7 +41,6 @@ setInterval(function () {
  * Checks wether the Fixbar has to be active and displays or removes it
  */
 function appBarHandler() {
-    console.log("AppbarHandler triggered");
     if (document.querySelector(".appbar").offsetTop <= getScrollTop()) {
         document.querySelector(".fixbar").classList.add("fixbar--active");
     } else if (document.querySelector(".appbar").offsetTop >= getScrollTop()) {
@@ -127,4 +126,33 @@ function validateEmail(email) {
 function validateName(text) {
     var pattern = /^[A-Za-z ]{1,}$/;
     return pattern.test(text);
+}
+
+document.querySelectorAll(".fixbar__link, .appbar__link").forEach(function (element) {
+    element.addEventListener("click", function () {
+        event.preventDefault();
+        //Position of the target negative the appbar and 10px margin
+        var target = document.querySelector("#" + element.getAttribute("href").slice(1)).offsetTop - 74;
+        scrollHandler(document.body, target, 400);
+    }, false);
+});
+
+/**
+ * Scrolls the page smoothly to a defined element
+ * @param {Element} element The Element that gets scrolled
+ * @param {number} target OffsetTop of the target
+ * @param {number} duration Scrolling duration
+ */
+function scrollHandler(element, target, duration) {
+    if (duration <= 0) return;
+    var difference = target - element.scrollTop;
+    var perTick = difference / duration * 10;
+
+    setTimeout(function () {
+        element.scrollTop = element.scrollTop + perTick;
+        if (element.scrollTop === target) {
+            return;
+        }
+        scrollHandler(element, target, duration - 10);
+    }, 10);
 }
