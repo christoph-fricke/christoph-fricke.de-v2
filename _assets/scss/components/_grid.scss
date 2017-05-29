@@ -7,6 +7,10 @@
             grid-template-columns: 20px 1fr 20px;
         }
     }
+    &__fixbar {
+        grid-template-columns: auto 1000px auto;
+        grid-template-areas: ". container .";
+    }
     &__about {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;

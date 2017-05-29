@@ -9,6 +9,9 @@
     padding: 0 50px;
     background-color: $color-primary-500;
     box-shadow: $elevation-4dp;
+    &__container {
+        grid-area: container;
+    }
     &__link {
         text-transform: uppercase;
         text-decoration: none;
@@ -24,8 +27,11 @@
         &:hover {
             color: $text-light-primary;
         }
+        &:first-child {
+            margin-left: 0;
+        }
     }
     &--active {
-        display: flex;
+        display: grid;
     }
 }
