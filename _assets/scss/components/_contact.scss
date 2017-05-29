@@ -41,8 +41,8 @@
         }
         &--textarea {
             grid-area: textarea;
-            resize: vertical;
-            min-height: 200px;
+            resize: none;
+            min-height: 250px;
         }
         &:focus {
             border: 2px solid $color-secondary-200;
