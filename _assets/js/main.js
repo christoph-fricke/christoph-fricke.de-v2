@@ -30,13 +30,25 @@ window.addEventListener("resize", function () {
 
 
 //Detects the click of navigation links and adds an event to smooth scroll the page
-document.querySelectorAll(".fixbar__link, .appbar__link").forEach(function (element) {
+document.querySelectorAll(".fixbar__link, .appbar__link, .sidedrawer__link").forEach(function (element) {
     element.addEventListener("click", function (event) {
         event.preventDefault();
         //Position of the target negative the appbar and 10px margin
         var targetid = element.getAttribute("href").slice(1);
         var target = document.querySelector("#" + targetid).offsetTop - 74;
         scrollHandler(getScrollTop(), target, targetid, 300);
+    }, false);
+});
+
+document.querySelector(".fixbar__sidedrawer-trigger").addEventListener("click", function () {
+    document.querySelector(".sidedrawer").classList.add("sidedrawer--active");
+    document.querySelector(".sidedrawer__spaner").classList.add("sidedrawer__spaner--active");
+}, false);
+
+document.querySelectorAll(".sidedrawer__link, .sidedrawer__spaner").forEach(function (element) {
+    element.addEventListener("click", function () {
+        document.querySelector(".sidedrawer").classList.remove("sidedrawer--active");
+        document.querySelector(".sidedrawer__spaner").classList.remove("sidedrawer__spaner--active");
     }, false);
 });
 
