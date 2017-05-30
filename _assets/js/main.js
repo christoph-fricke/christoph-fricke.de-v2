@@ -164,7 +164,7 @@ function scrollHandler(scrollTop, target, duration) {
     var perTick = difference / duration * 10;
 
     setTimeout(function () {
-        window.scrollTo(0, scrollTop + perTick);
+        window.scroll(0, scrollTop + perTick);
         if (getScrollTop() === target) {
             return;
         }
