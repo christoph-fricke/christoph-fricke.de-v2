@@ -11,10 +11,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 }, false);
 
+//Calls the contact event
 document.querySelector(".contact__form").addEventListener("submit", function (event) {
     contactHandler(event);
 }, false);
 
+
+//Controls wether the appBarHandler should get called when the page gets resized after load
 window.addEventListener("resize", function () {
     if (window.innerWidth > 450) {
         window.addEventListener("scroll", setUserScrolled, false);
@@ -25,15 +28,20 @@ window.addEventListener("resize", function () {
     }
 }, false);
 
+
+//Detects the click of navigation links and adds an event to smooth scroll the page
 document.querySelectorAll(".fixbar__link, .appbar__link").forEach(function (element) {
     element.addEventListener("click", function (event) {
         event.preventDefault();
         //Position of the target negative the appbar and 10px margin
         var target = document.querySelector("#" + element.getAttribute("href").slice(1)).offsetTop - 74;
-        scrollHandler(document.querySelector("body"), target, 400);
+        scrollHandler(getScrollTop(), target, 400);
     }, false);
 });
 
+/**
+ * Controls the appBarHandler calls
+ */
 function setUserScrolled() {
     userScrolled = true;
 }
@@ -85,6 +93,10 @@ function getToken() {
     };
 }
 
+/**
+ * Checks the contactformular and sends the data to the server
+ * @param {Event} event 
+ */
 function contactHandler(event) {
     event.preventDefault();
     var name = document.querySelector("#name").value;
@@ -124,6 +136,7 @@ function contactHandler(event) {
                 }
             }
         };
+        getToken();
     }
 }
 
@@ -139,22 +152,22 @@ function validateName(text) {
 
 /**
  * Scrolls the page smoothly to a defined element
- * @param {Element} element The Element that gets scrolled
+ * @param {number} scrollTop The scrollTop value of the browser (you should use getScrollTop() to set it)
  * @param {number} target OffsetTop of the target
  * @param {number} duration Scrolling duration
  */
-function scrollHandler(element, target, duration) {
+function scrollHandler(scrollTop, target, duration) {
     if (duration <= 0) {
         return;
     }
-    var difference = target - element.scrollTop;
+    var difference = target - scrollTop;
     var perTick = difference / duration * 10;
 
     setTimeout(function () {
-        element.scrollTop = element.scrollTop + perTick;
-        if (element.scrollTop === target) {
+        window.scrollTo(0, scrollTop + perTick);
+        if (getScrollTop() === target) {
             return;
         }
-        scrollHandler(element, target, duration - 10);
+        scrollHandler(getScrollTop(), target, duration - 10);
     }, 10);
 }
