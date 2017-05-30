@@ -34,8 +34,9 @@ document.querySelectorAll(".fixbar__link, .appbar__link").forEach(function (elem
     element.addEventListener("click", function (event) {
         event.preventDefault();
         //Position of the target negative the appbar and 10px margin
-        var target = document.querySelector("#" + element.getAttribute("href").slice(1)).offsetTop - 74;
-        scrollHandler(getScrollTop(), target, 300);
+        var targetid = element.getAttribute("href").slice(1);
+        var target = document.querySelector("#" + targetid).offsetTop - 74;
+        scrollHandler(getScrollTop(), target, targetid, 300);
     }, false);
 });
 
@@ -154,9 +155,10 @@ function validateName(text) {
  * Scrolls the page smoothly to a defined element
  * @param {number} scrollTop The scrollTop value of the browser (you should use getScrollTop() to set it)
  * @param {number} target OffsetTop of the target
+ * @param {string} targetid The name of the section it is scrolling to
  * @param {number} duration Scrolling duration
  */
-function scrollHandler(scrollTop, target, duration) {
+function scrollHandler(scrollTop, target, targetid, duration) {
     if (duration <= 0) {
         return;
     }
@@ -166,8 +168,9 @@ function scrollHandler(scrollTop, target, duration) {
     setTimeout(function () {
         window.scrollTo(0, scrollTop + perTick);
         if (getScrollTop() === target) {
+            document.querySelector(".fixbar__header-span").innerHTML = targetid;
             return;
         }
-        scrollHandler(getScrollTop(), target, duration - 10);
+        scrollHandler(getScrollTop(), target, targetid, duration - 10);
     }, 10);
 }

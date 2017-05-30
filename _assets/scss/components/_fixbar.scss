@@ -10,8 +10,16 @@
     box-shadow: $elevation-4dp;
     &__container {
         grid-area: container;
-        @media screen and (max-width: 450px) {
+        @media screen and (max-width: 600px) {
             display: none;
+        }
+    }
+    &__mobile-container {
+        grid-area: mobile;
+        display: none;
+        align-items: center;
+        @media screen and (max-width: 600px) {
+            display: flex;
         }
     }
     &__link {
@@ -32,6 +40,18 @@
         &:first-child {
             margin-left: 0;
         }
+    }
+    &__sidedrawer-trigger {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        color: $icons-light-active;
+    }
+    &__header-span {
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        margin-left: 20px;
+        color: $text-light-primary;
     }
     &--active {
         display: grid;
