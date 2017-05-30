@@ -6,11 +6,13 @@
     height: 64px;
     display: none;
     align-items: center;
-    padding: 0 50px;
     background-color: $color-primary-500;
     box-shadow: $elevation-4dp;
     &__container {
         grid-area: container;
+        @media screen and (max-width: 450px) {
+            display: none;
+        }
     }
     &__link {
         text-transform: uppercase;
