@@ -35,7 +35,7 @@ document.querySelectorAll(".fixbar__link, .appbar__link").forEach(function (elem
         event.preventDefault();
         //Position of the target negative the appbar and 10px margin
         var target = document.querySelector("#" + element.getAttribute("href").slice(1)).offsetTop - 74;
-        scrollHandler(getScrollTop(), target, 400);
+        scrollHandler(getScrollTop(), target, 300);
     }, false);
 });
 
