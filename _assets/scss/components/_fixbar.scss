@@ -40,6 +40,9 @@
         &:first-child {
             margin-left: 0;
         }
+        &--active {
+            color: $text-light-primary;
+        }
     }
     &__sidedrawer-trigger {
         user-select: none;

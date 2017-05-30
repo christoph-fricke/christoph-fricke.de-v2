@@ -1,5 +1,6 @@
 var token;
 var userScrolled;
+var pageScrolled;
 
 document.addEventListener("DOMContentLoaded", function () {
     getToken();
@@ -9,6 +10,10 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
         document.querySelector(".fixbar").classList.add("fixbar--active");
     }
+}, false);
+
+window.addEventListener("scroll", function () {
+    pageScrolled = true;
 }, false);
 
 //Calls the contact event
@@ -36,10 +41,11 @@ document.querySelectorAll(".fixbar__link, .appbar__link, .sidedrawer__link").for
         //Position of the target negative the appbar and 10px margin
         var targetid = element.getAttribute("href").slice(1);
         var target = document.querySelector("#" + targetid).offsetTop - 74;
-        scrollHandler(getScrollTop(), target, targetid, 300);
+        scrollHandler(getScrollTop(), target, 300);
     }, false);
 });
 
+//Controls the sidedrawer handling
 document.querySelector(".fixbar__sidedrawer-trigger").addEventListener("click", function () {
     document.querySelector(".sidedrawer").classList.add("sidedrawer--active");
     document.querySelector(".sidedrawer__spaner").classList.add("sidedrawer__spaner--active");
@@ -64,6 +70,10 @@ setInterval(function () {
     if (userScrolled) {
         userScrolled = false;
         appBarHandler();
+    }
+    if (pageScrolled) {
+        pageScrolled = false;
+        positionHandler();
     }
 }, 100);
 
@@ -167,10 +177,9 @@ function validateName(text) {
  * Scrolls the page smoothly to a defined element
  * @param {number} scrollTop The scrollTop value of the browser (you should use getScrollTop() to set it)
  * @param {number} target OffsetTop of the target
- * @param {string} targetid The name of the section it is scrolling to
  * @param {number} duration Scrolling duration
  */
-function scrollHandler(scrollTop, target, targetid, duration) {
+function scrollHandler(scrollTop, target, duration) {
     if (duration <= 0) {
         return;
     }
@@ -179,10 +188,58 @@ function scrollHandler(scrollTop, target, targetid, duration) {
 
     setTimeout(function () {
         window.scrollTo(0, scrollTop + perTick);
-        if (getScrollTop() === target) {
-            document.querySelector(".fixbar__header-span").innerHTML = targetid;
+        if (scrollTop === target) {
             return;
         }
-        scrollHandler(getScrollTop(), target, targetid, duration - 10);
+        scrollHandler(getScrollTop(), target, duration - 10);
     }, 10);
+}
+
+/**
+ * Determines which navigation link has to be active depending on the position
+ */
+function positionHandler() {
+    var scrollTop = getScrollTop();
+    var topMargin = 74;
+    if (window.innerWidth < 600) {
+        if (scrollTop >= document.querySelector("#home").offsetTop - topMargin) {
+            document.querySelector(".fixbar__header-span").innerHTML = "home";
+        }
+        if (scrollTop >= document.querySelector("#about").offsetTop - topMargin) {
+            document.querySelector(".fixbar__header-span").innerHTML = "about";
+        }
+        if (scrollTop >= document.querySelector("#blog").offsetTop - topMargin) {
+            document.querySelector(".fixbar__header-span").innerHTML = "blog";
+        }
+        if (scrollTop >= document.querySelector("#projects").offsetTop - topMargin) {
+            document.querySelector(".fixbar__header-span").innerHTML = "projects";
+        }
+        if (scrollTop >= document.querySelector("#contact").offsetTop - topMargin) {
+            document.querySelector(".fixbar__header-span").innerHTML = "contact";
+        }
+    } else {
+        if (scrollTop >= document.querySelector("#home").offsetTop - topMargin) {
+            document.querySelector("#linkHome").classList.add("fixbar__link--active");
+            document.querySelector("#linkAbout").classList.remove("fixbar__link--active");
+        }
+        if (scrollTop >= document.querySelector("#about").offsetTop - topMargin) {
+            document.querySelector("#linkAbout").classList.add("fixbar__link--active");
+            document.querySelector("#linkHome").classList.remove("fixbar__link--active");
+            document.querySelector("#linkBlog").classList.remove("fixbar__link--active");
+        }
+        if (scrollTop >= document.querySelector("#blog").offsetTop - topMargin) {
+            document.querySelector("#linkBlog").classList.add("fixbar__link--active");
+            document.querySelector("#linkAbout").classList.remove("fixbar__link--active");
+            document.querySelector("#linkProjects").classList.remove("fixbar__link--active");
+        }
+        if (scrollTop >= document.querySelector("#projects").offsetTop - topMargin) {
+            document.querySelector("#linkProjects").classList.add("fixbar__link--active");
+            document.querySelector("#linkBlog").classList.remove("fixbar__link--active");
+            document.querySelector("#linkContact").classList.remove("fixbar__link--active");
+        }
+        if (scrollTop >= document.querySelector("#contact").offsetTop - topMargin) {
+            document.querySelector("#linkContact").classList.add("fixbar__link--active");
+            document.querySelector("#linkProjects").classList.remove("fixbar__link--active");
+        }
+    }
 }
