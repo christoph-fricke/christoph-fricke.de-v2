@@ -11,6 +11,7 @@
     padding: 8px 16px;
     cursor: pointer;
     transition: $transition-standard;
+    outline: none;
     &:hover {
         box-shadow: $elevation-8dp;
     }
