@@ -4,6 +4,7 @@ var pageScrolled;
 
 document.addEventListener("DOMContentLoaded", function () {
     getToken();
+    getProjects();
     // Handles the Fixbar handling depending on the window-size on load
     if (window.innerWidth > 450) {
         window.addEventListener("scroll", setUserScrolled, false);
@@ -242,4 +243,29 @@ function positionHandler() {
             document.querySelector("#linkProjects").classList.remove("fixbar__link--active");
         }
     }
+}
+
+/**
+ * Request the projects from the server. Call getProjectsTest for testing
+ * @return Object containing all projects
+ */
+function getProjects() {
+    var response;
+    var request = new XMLHttpRequest();
+    request.open("POST", "_assets/php/getProjectsTest.php", true);
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    request.send("token=" + token);
+    request.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            response = JSON.parse(this.responseText);
+            projectsHandler(response);
+        }
+    };
+}
+
+/**
+ * Inserts the data recieved from the server into the page
+ * @param {Object} data the data recieved from the server
+ */
+function projectsHandler(data) {
 }
