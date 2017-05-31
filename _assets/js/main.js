@@ -287,7 +287,7 @@ function getProjects() {
     if (typeof token !== 'undefined' && token !== oldToken) {
         var response;
         var request = new XMLHttpRequest();
-        request.open("POST", "_assets/php/getProjectsTest.php", true);
+        request.open("POST", "_assets/php/getProjects.php", true);
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         request.send("token=" + token);
         request.onreadystatechange = function () {
