@@ -1,0 +1,2 @@
+#Ignore MariaDB connection config
+dbconfig.php
