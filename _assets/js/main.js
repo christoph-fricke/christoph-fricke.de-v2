@@ -1,4 +1,5 @@
 var token;
+var oldToken;
 var userScrolled;
 var pageScrolled;
 
@@ -107,6 +108,7 @@ function getScrollTop() {
  * Request a security token from the server and sets it as the global variable token.
  */
 function getToken() {
+    oldToken = token;
     var request = new XMLHttpRequest();
     request.open("POST", "_assets/php/getToken.php", true);
     request.send();
@@ -118,7 +120,7 @@ function getToken() {
 }
 
 /**
- * Checks the contactformular and sends the data to the server
+ * Checks the contactformular for invalid inputs
  * @param {Event} event 
  */
 function contactHandler(event) {
@@ -138,6 +140,19 @@ function contactHandler(event) {
         feedbackField.innerHTML = "Please enter a valid email!";
         feedbackField.style.color = "rgba(255, 152, 0, 0.87)";
     } else {
+        sendMail(name, email, message, feedbackField);
+    }
+}
+
+/**
+ * Send the contact formular values to the server and sets the feedbackfield
+ * @param {string} name Contact name input value
+ * @param {string} email Contact email input value
+ * @param {string} message Contact message value
+ * @param {Element} feedbackField The Feedbackfield
+ */
+function sendMail(name, email, message, feedbackField) {
+    if (typeof token !== 'undefined' && token !== oldToken) {
         var request = new XMLHttpRequest();
         request.open("POST", "_assets/php/sendMail.php", true);
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -161,6 +176,10 @@ function contactHandler(event) {
             }
         };
         getToken();
+    } else {
+        setTimeout(function () {
+            sendMail(name, email, message, feedbackField);
+        }, 50);
     }
 }
 
@@ -250,17 +269,26 @@ function positionHandler() {
  * @return Object containing all projects
  */
 function getProjects() {
-    var response;
-    var request = new XMLHttpRequest();
-    request.open("POST", "_assets/php/getProjectsTest.php", true);
-    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    request.send("token=" + token);
-    request.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            response = JSON.parse(this.responseText);
-            projectsHandler(response);
-        }
-    };
+    if (typeof token !== 'undefined' && token !== oldToken) {
+        var response;
+        var request = new XMLHttpRequest();
+        request.open("POST", "_assets/php/getProjectsTest.php", true);
+        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        request.send("token=" + token);
+        request.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                response = JSON.parse(this.responseText);
+                console.log(response);
+                // projectsHandler(response);
+            }
+        };
+        getToken();
+    } else {
+        setTimeout(function () {
+            getProjects();
+        }, 50);
+    }
+
 }
 
 /**
