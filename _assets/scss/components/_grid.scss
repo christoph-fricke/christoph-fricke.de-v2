@@ -28,6 +28,7 @@
     &__projects {
         display: grid;
         grid-template-columns: auto 1fr auto;
+        grid-template-areas: "navigationLeft card navigationRight";
         grid-gap: 20px;
     }
     &__form {
