@@ -270,6 +270,7 @@ function getProjects() {
 function projectsHandler(data) {
     var projectsContainer = document.querySelector("#projects");
 
+    //Creates needed elements
     var card = document.createElement("div");
     card.setAttribute("class", "projects__card card");
 
@@ -316,4 +317,22 @@ function projectsHandler(data) {
     var text = document.createElement("p");
     text.setAttribute("class", "projects__text");
     text.appendChild(document.createTextNode(data[5]));
+
+    //Build the DOM
+    infoTextCategory.appendChild(textSpanCategory);
+    infoTextDate.appendChild(textSpanDate);
+    infoTextLink.appendChild(textSpanLink);
+
+    projectsRow.appendChild(infoTextCategory);
+    projectsRow.appendChild(infoTextDate);
+    projectsRow.appendChild(infoTextLink);
+
+    headerContainer.appendChild(header);
+    imageContainer.appendChild(headerContainer);
+
+    card.appendChild(imageContainer);
+    card.appendChild(projectsRow);
+    card.appendChild(text);
+
+    projectsContainer.appendChild(card);
 }
