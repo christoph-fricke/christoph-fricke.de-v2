@@ -12,6 +12,9 @@
     @media screen and (max-width: 450px) {
         display: none;
     }
+    @media screen and (max-height: 1124px) {
+        margin-bottom: 50px;
+    }
     &__link {
         text-transform: uppercase;
         text-decoration: none;

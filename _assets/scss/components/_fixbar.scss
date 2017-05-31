@@ -6,6 +6,7 @@
     height: 64px;
     display: none;
     align-items: center;
+    z-index: 3;
     background-color: $color-primary-500;
     box-shadow: $elevation-4dp;
     &__container {
