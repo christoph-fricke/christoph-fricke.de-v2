@@ -268,4 +268,52 @@ function getProjects() {
  * @param {Object} data the data recieved from the server
  */
 function projectsHandler(data) {
+    var projectsContainer = document.querySelector("#projects");
+
+    var card = document.createElement("div");
+    card.setAttribute("class", "projects__card card");
+
+    var imageContainer = document.createElement("div");
+    imageContainer.setAttribute("class", "projects__image-container");
+    imageContainer.setAttribute("style", "background-image: url(_assets/img/projects/" + data[4] + ")");
+
+    var headerContainer = document.createElement("div");
+    headerContainer.setAttribute("class", "projects__header-container");
+
+    var header = document.createElement("h4");
+    header.setAttribute("class", "projects__header");
+    header.appendChild(document.createTextNode(data[0]));
+
+    var projectsRow = document.createElement("div");
+    projectsRow.setAttribute("class", "projects__info-row");
+
+    var infoTextCategory = document.createElement("h5");
+    infoTextCategory.setAttribute("class", "projects__info-text");
+    infoTextCategory.appendChild(document.createTextNode("Category: "));
+
+    var infoTextDate = document.createElement("h5");
+    infoTextDate.setAttribute("class", "projects__info-text");
+    infoTextDate.appendChild(document.createTextNode("Date: "));
+
+    var infoTextLink = document.createElement("h5");
+    infoTextLink.setAttribute("class", "projects__info-text");
+    infoTextLink.appendChild(document.createTextNode("Link: "));
+
+    var textSpanCategory = document.createElement("span");
+    textSpanCategory.setAttribute("class", "projects__info-text projects__info-text--faded");
+    textSpanCategory.appendChild(document.createTextNode(data[1]));
+
+    var textSpanDate = document.createElement("span");
+    textSpanDate.setAttribute("class", "projects__info-text projects__info-text--faded");
+    textSpanDate.appendChild(document.createTextNode(data[2]));
+
+    var textSpanLink = document.createElement("a");
+    textSpanLink.setAttribute("class", "projects__info-text projects__info-text--faded projects__info-text--link");
+    textSpanLink.setAttribute("href", data[3]);
+    textSpanLink.setAttribute("target", "_blank");
+    textSpanLink.appendChild(document.createTextNode(data[3]));
+
+    var text = document.createElement("p");
+    text.setAttribute("class", "projects__text");
+    text.appendChild(document.createTextNode(data[5]));
 }
