@@ -60,6 +60,15 @@ document.querySelectorAll(".sidedrawer__link, .sidedrawer__spaner").forEach(func
     }, false);
 });
 
+//Triggers the projects slider
+document.querySelector(".projects__icon--left").addEventListener("click", function () {
+    projectsSlider("left");
+}, false);
+
+document.querySelector(".projects__icon--right").addEventListener("click", function () {
+    projectsSlider("right");
+}, false);
+
 /**
  * Controls the appBarHandler calls
  */
@@ -183,11 +192,17 @@ function sendMail(name, email, message, feedbackField) {
     }
 }
 
+/**
+ * Checks if an email has a valid pattern
+ */
 function validateEmail(email) {
     var pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return pattern.test(email);
 }
 
+/**
+ * Checks if a name has a valid pattern
+ */
 function validateName(text) {
     var pattern = /^[A-Za-z ]{1,}$/;
     return pattern.test(text);
@@ -278,8 +293,7 @@ function getProjects() {
         request.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 response = JSON.parse(this.responseText);
-                console.log(response);
-                // projectsHandler(response);
+                projectsHandler(response);
             }
         };
         getToken();
@@ -297,70 +311,102 @@ function getProjects() {
  */
 function projectsHandler(data) {
     var projectsContainer = document.querySelector("#projects");
+    //X loops over every project so a card is generated for every project
+    for (var x = 0; x < data.length; x++) {
+        //Creates needed elements
+        var card = document.createElement("div");
+        card.setAttribute("class", "projects__card card");
 
-    //Creates needed elements
-    var card = document.createElement("div");
-    card.setAttribute("class", "projects__card card");
+        var imageContainer = document.createElement("div");
+        imageContainer.setAttribute("class", "projects__image-container");
+        imageContainer.setAttribute("style", "background-image: url(_assets/img/projects/" + data[x].image + ")");
 
-    var imageContainer = document.createElement("div");
-    imageContainer.setAttribute("class", "projects__image-container");
-    imageContainer.setAttribute("style", "background-image: url(_assets/img/projects/" + data[4] + ")");
+        var headerContainer = document.createElement("div");
+        headerContainer.setAttribute("class", "projects__header-container");
 
-    var headerContainer = document.createElement("div");
-    headerContainer.setAttribute("class", "projects__header-container");
+        var header = document.createElement("h4");
+        header.setAttribute("class", "projects__header");
+        header.appendChild(document.createTextNode(data[x].title));
 
-    var header = document.createElement("h4");
-    header.setAttribute("class", "projects__header");
-    header.appendChild(document.createTextNode(data[0]));
+        var projectsRow = document.createElement("div");
+        projectsRow.setAttribute("class", "projects__info-row");
 
-    var projectsRow = document.createElement("div");
-    projectsRow.setAttribute("class", "projects__info-row");
+        var infoTextCategory = document.createElement("h5");
+        infoTextCategory.setAttribute("class", "projects__info-text");
+        infoTextCategory.appendChild(document.createTextNode("Category: "));
 
-    var infoTextCategory = document.createElement("h5");
-    infoTextCategory.setAttribute("class", "projects__info-text");
-    infoTextCategory.appendChild(document.createTextNode("Category: "));
+        var infoTextDate = document.createElement("h5");
+        infoTextDate.setAttribute("class", "projects__info-text");
+        infoTextDate.appendChild(document.createTextNode("Date: "));
 
-    var infoTextDate = document.createElement("h5");
-    infoTextDate.setAttribute("class", "projects__info-text");
-    infoTextDate.appendChild(document.createTextNode("Date: "));
+        var infoTextLink = document.createElement("h5");
+        infoTextLink.setAttribute("class", "projects__info-text");
+        infoTextLink.appendChild(document.createTextNode("Link: "));
 
-    var infoTextLink = document.createElement("h5");
-    infoTextLink.setAttribute("class", "projects__info-text");
-    infoTextLink.appendChild(document.createTextNode("Link: "));
+        var textSpanCategory = document.createElement("span");
+        textSpanCategory.setAttribute("class", "projects__info-text projects__info-text--faded");
+        textSpanCategory.appendChild(document.createTextNode(data[x].category));
 
-    var textSpanCategory = document.createElement("span");
-    textSpanCategory.setAttribute("class", "projects__info-text projects__info-text--faded");
-    textSpanCategory.appendChild(document.createTextNode(data[1]));
+        var textSpanDate = document.createElement("span");
+        textSpanDate.setAttribute("class", "projects__info-text projects__info-text--faded");
+        textSpanDate.appendChild(document.createTextNode(data[x].date));
 
-    var textSpanDate = document.createElement("span");
-    textSpanDate.setAttribute("class", "projects__info-text projects__info-text--faded");
-    textSpanDate.appendChild(document.createTextNode(data[2]));
+        var textSpanLink = document.createElement("a");
+        textSpanLink.setAttribute("class", "projects__info-text projects__info-text--faded projects__info-text--link");
+        textSpanLink.setAttribute("href", data[x].link);
+        textSpanLink.setAttribute("target", "_blank");
+        textSpanLink.appendChild(document.createTextNode(data[x].link));
 
-    var textSpanLink = document.createElement("a");
-    textSpanLink.setAttribute("class", "projects__info-text projects__info-text--faded projects__info-text--link");
-    textSpanLink.setAttribute("href", data[3]);
-    textSpanLink.setAttribute("target", "_blank");
-    textSpanLink.appendChild(document.createTextNode(data[3]));
+        var text = document.createElement("p");
+        text.setAttribute("class", "projects__text");
+        text.appendChild(document.createTextNode(data[x].text));
 
-    var text = document.createElement("p");
-    text.setAttribute("class", "projects__text");
-    text.appendChild(document.createTextNode(data[5]));
+        //Build the DOM
+        infoTextCategory.appendChild(textSpanCategory);
+        infoTextDate.appendChild(textSpanDate);
+        infoTextLink.appendChild(textSpanLink);
 
-    //Build the DOM
-    infoTextCategory.appendChild(textSpanCategory);
-    infoTextDate.appendChild(textSpanDate);
-    infoTextLink.appendChild(textSpanLink);
+        projectsRow.appendChild(infoTextCategory);
+        projectsRow.appendChild(infoTextDate);
+        projectsRow.appendChild(infoTextLink);
 
-    projectsRow.appendChild(infoTextCategory);
-    projectsRow.appendChild(infoTextDate);
-    projectsRow.appendChild(infoTextLink);
+        headerContainer.appendChild(header);
+        imageContainer.appendChild(headerContainer);
 
-    headerContainer.appendChild(header);
-    imageContainer.appendChild(headerContainer);
+        card.appendChild(imageContainer);
+        card.appendChild(projectsRow);
+        card.appendChild(text);
 
-    card.appendChild(imageContainer);
-    card.appendChild(projectsRow);
-    card.appendChild(text);
+        projectsContainer.appendChild(card);
+        document.querySelectorAll(".projects__card")[0].classList.add("projects__card--active");
+    }
+}
 
-    projectsContainer.appendChild(card);
+/**
+ * Controls the projects slider
+ * @param {string} direction The direction the projects card has to slide
+ */
+function projectsSlider(direction) {
+    var cards = document.querySelectorAll(".projects__card");
+    for (var n = 0; n < cards.length; n++) {
+        if (cards[n].classList.contains("projects__card--active")) {
+            cards[n].classList.remove("projects__card--active");
+
+            if (direction === "left") {
+                //Jumps to the end if we are already displaying the first image
+                if (n === 0) {
+                    cards[cards.length - 1].classList.add("projects__card--active");
+                }
+                cards[n - 1].classList.add("projects__card--active");
+                break;
+            } else if (direction === "right") {
+                //Jumps to the beginning if we are already displaying the last image
+                if (n === cards.length - 1) {
+                    cards[0].classList.add("projects__card--active");
+                }
+                cards[n + 1].classList.add("projects__card--active");
+                break;
+            }
+        }
+    }
 }
