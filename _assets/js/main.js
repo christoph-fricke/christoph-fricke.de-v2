@@ -168,6 +168,7 @@ function sendMail(name, email, message, feedbackField) {
         request.send("name=" + name + "&email=" + email + "&message=" + message + "&token=" + token);
         request.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
+                getToken();
                 switch (this.responseText) {
                     case 1:
                         feedbackField.innerHTML = "Success: Email has been send!";
@@ -184,7 +185,6 @@ function sendMail(name, email, message, feedbackField) {
                 }
             }
         };
-        getToken();
     } else {
         setTimeout(function () {
             sendMail(name, email, message, feedbackField);
@@ -292,11 +292,11 @@ function getProjects() {
         request.send("token=" + token);
         request.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
+                getToken();
                 response = JSON.parse(this.responseText);
                 projectsHandler(response);
             }
         };
-        getToken();
     } else {
         setTimeout(function () {
             getProjects();
