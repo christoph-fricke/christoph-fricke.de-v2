@@ -15,6 +15,9 @@
             color: rgba($color-secondary-200, 0.87);
             cursor: pointer;
             transition: $transition-standard;
+            @media screen and (max-width: 359px) {
+                font-size: 1.3rem;
+            }
             &:hover {
                 text-decoration: underline;
                 color: rgba($color-secondary-400, 0.87);
