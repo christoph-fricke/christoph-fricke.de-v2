@@ -173,6 +173,9 @@ function sendMail(name, email, message, feedbackField) {
                     case 1:
                         feedbackField.innerHTML = "Success: Email has been send!";
                         feedbackField.style.color = "rgba(76, 175, 80, 0.87)";
+                        document.querySelector("#name").value = "";
+                        document.querySelector("#email").value = "";
+                        document.querySelector("#message").value = "";
                         break;
                     case 0:
                         feedbackField.innerHTML = "Error: Email could not been send!";
