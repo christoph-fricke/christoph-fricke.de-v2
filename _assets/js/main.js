@@ -381,8 +381,8 @@ function projectsHandler(data) {
         card.appendChild(text);
 
         projectsContainer.appendChild(card);
-        document.querySelectorAll(".projects__card")[0].classList.add("projects__card--active");
     }
+    document.querySelectorAll(".projects__card")[0].classList.add("projects__card--active");
 }
 
 /**
