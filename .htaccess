@@ -1,0 +1,16 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^(www\.)?christoph-fricke\.de$ [NC]
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^ https://christoph-fricke.de%{REQUEST_URI} [R=301,L,NE]
+
+AddHandler php-fastcgi7.0 .php
+
+ErrorDocument 401 /_assets/php/error.php?type=401
+ErrorDocument 403 /_assets/php/error.php?type=403
+ErrorDocument 404 /_assets/php/error.php?type=404
+
+<Files "dbconfig.php">
+    Order allow, deny
+    Deny from all
+</Files>
