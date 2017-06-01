@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['token']) || $_SESSION['token'] != $_POST['token']) {
-    return;
+    die('No token is provided.');
 }
 
 require_once('dbConnector.php');
