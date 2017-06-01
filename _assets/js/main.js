@@ -3,6 +3,16 @@ var oldToken;
 var userScrolled;
 var pageScrolled;
 
+// Internet Explorer 6-11
+var isIE = /*@cc_on!@*/false || !!document.documentMode;
+
+// Edge 20+
+var isEdge = !isIE && !!window.StyleMedia;
+
+if(isIE || isEdge) {
+    alert("This website uses the css grid feature which is not supported by your browser. Please use another browser till the feature is supported.");
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     getToken();
     getProjects();
