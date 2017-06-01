@@ -1,0 +1,38 @@
+{
+    "short_name": "Christoph",
+    "name": "Christoph Fricke",
+    "description": "Portfolio site of Christoph Fricke",
+    "dir": "ltr",
+    "lang": "de",
+    "icons": [{
+        "src": "_assets/img/favicons/favicon48x48.png",
+        "type": "image/png",
+        "sizes": "48x48"
+    }, {
+        "src": "_assets/img/favicons/favicon96x96.png",
+        "type": "image/png",
+        "sizes": "96x96"
+    }, {
+        "src": "_assets/img/favicons/favicon128x128.png",
+        "type": "image/png",
+        "sizes": "128x128"
+    }, {
+        "src": "_assets/img/favicons/favicon144x144.png",
+        "type": "image/png",
+        "sizes": "144x144"
+    }, {
+        "src": "_assets/img/favicons/favicon152x152.png",
+        "type": "image/png",
+        "sizes": "152x152"
+    }, {
+        "src": "_assets/img/favicons/favicon192x192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+    }],
+    "start_url": "index.html",
+    "background_color": "#FAFAFA",
+    "theme_color": "#009688",
+    "display": "standalone",
+    "orientation": "portrait",
+    "prefer_related_applications": false
+}
