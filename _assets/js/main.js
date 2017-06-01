@@ -4,12 +4,12 @@ var userScrolled;
 var pageScrolled;
 
 // Internet Explorer 6-11
-var isIE = /*@cc_on!@*/false || !!document.documentMode;
+var isIE = /*@cc_on!@*/ false || !!document.documentMode;
 
 // Edge 20+
 var isEdge = !isIE && !!window.StyleMedia;
 
-if(isIE || isEdge) {
+if (isIE || isEdge) {
     alert("This website uses the css grid feature which is not supported by your browser. Please use another browser till the feature is supported.");
 }
 
@@ -393,7 +393,27 @@ function projectsHandler(data) {
 
         projectsContainer.appendChild(card);
     }
-    document.querySelectorAll(".projects__card")[0].classList.add("projects__card--active");
+    var cardList = document.querySelectorAll(".projects__card");
+    cardList[0].classList.add("projects__card--active");
+    createProjectsDots(cardList);
+}
+
+/**
+ * 
+ * @param {NodeListOf<Element>} cardList List of all project cards
+ */
+function createProjectsDots(cardList) {
+    for (var x = 0; x < cardList.length; x++) {
+        var dotContainer = document.createElement("div");
+        dotContainer.setAttribute("class", "projects__dot-container");
+        for(var y = 0; y < cardList.length; y++) {
+            var dot = document.createElement("div");
+            dot.setAttribute("class", "projects__dot");
+            dotContainer.appendChild(dot);
+        }
+        cardList[x].appendChild(dotContainer);
+        document.querySelectorAll(".projects__dot-container")[x].childNodes[x].classList.add("projects__dot--active");
+    }
 }
 
 /**
@@ -408,15 +428,17 @@ function projectsSlider(direction) {
 
             if (direction === "left") {
                 //Jumps to the end if we are already displaying the first image
-                if (n === 0) {
+                if (n == 0) {
                     cards[cards.length - 1].classList.add("projects__card--active");
+                    break;
                 }
                 cards[n - 1].classList.add("projects__card--active");
                 break;
             } else if (direction === "right") {
                 //Jumps to the beginning if we are already displaying the last image
-                if (n === cards.length - 1) {
+                if (n == cards.length - 1) {
                     cards[0].classList.add("projects__card--active");
+                    break;
                 }
                 cards[n + 1].classList.add("projects__card--active");
                 break;
