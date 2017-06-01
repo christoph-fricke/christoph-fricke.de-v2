@@ -15,10 +15,18 @@ $response = [
         'text' => 'I created the website together with a friend for a racing team in our school. They participate in the "F1 in schools" compettion. They were able to enchange the social interactions with the help of their new website.'
     ],
     [
-        'title' => 'Fiction',
+        'title' => 'Pioneers2',
         'category' => 'Website',
-        'date' => 'May, 2017',
-        'link' => 'https://github.com/christoph-fricke',
+        'date' => 'March, 2017',
+        'link' => 'http://shpioneers.de',
+        'image' => 'shpioneers.jpg',
+        'text' => 'I created the website together with a friend for a racing team in our school. They participate in the "F1 in schools" compettion. They were able to enchange the social interactions with the help of their new website.'
+    ],
+    [
+        'title' => 'Pioneers3',
+        'category' => 'Website',
+        'date' => 'March, 2017',
+        'link' => 'http://shpioneers.de',
         'image' => 'shpioneers.jpg',
         'text' => 'I created the website together with a friend for a racing team in our school. They participate in the "F1 in schools" compettion. They were able to enchange the social interactions with the help of their new website.'
     ]
