@@ -38,6 +38,7 @@ document.querySelector(".contact__form").addEventListener("submit", function (ev
 window.addEventListener("resize", function () {
     if (window.innerWidth > 450) {
         window.addEventListener("scroll", setUserScrolled, false);
+        document.querySelector(".sidedrawer").classList.remove("sidedrawer--active");
         appBarHandler();
     } else {
         window.removeEventListener("scroll", setUserScrolled, false);
