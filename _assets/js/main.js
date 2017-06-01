@@ -399,7 +399,7 @@ function projectsHandler(data) {
 }
 
 /**
- * 
+ * Inserts dots into the cards to show the length of the projects list and the index of each card
  * @param {NodeListOf<Element>} cardList List of all project cards
  */
 function createProjectsDots(cardList) {
