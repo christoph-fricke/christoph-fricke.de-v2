@@ -181,14 +181,14 @@ function sendMail(name, email, message, feedbackField) {
             if (this.readyState == 4 && this.status == 200) {
                 getToken();
                 switch (this.responseText) {
-                    case 1:
+                    case "1":
                         feedbackField.innerHTML = "Success: Email has been send!";
                         feedbackField.style.color = "rgba(76, 175, 80, 0.87)";
                         document.querySelector("#name").value = "";
                         document.querySelector("#email").value = "";
                         document.querySelector("#message").value = "";
                         break;
-                    case 0:
+                    case "0":
                         feedbackField.innerHTML = "Error: Email could not been send!";
                         feedbackField.style.color = "rgba(244, 67, 54, 0.87)";
                         break;
