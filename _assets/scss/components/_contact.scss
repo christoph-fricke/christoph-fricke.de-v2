@@ -50,6 +50,8 @@
         }
         &:focus {
             border: 2px solid $color-secondary-200;
+            width: 100%;
+            min-width: 100%;
         }
     }
     &__submit {
