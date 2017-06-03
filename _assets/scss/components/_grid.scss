@@ -37,11 +37,11 @@
     }
     &__form {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 50% 50%;
         grid-template-areas: "name email" "textarea textarea" "feedback submit";
         grid-gap: 10px;
         @media screen and (max-width: 500px) {
-            grid-template-columns: 1fr;
+            grid-template-columns: 100%;
             grid-template-areas: "feedback" "name" "email" "textarea" "submit";
         }
     }
