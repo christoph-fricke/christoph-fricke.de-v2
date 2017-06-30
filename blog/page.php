@@ -35,7 +35,9 @@ if (!isset($_GET['blog'])) {
     <meta name="author" content="Christoph Fricke" />
     <meta name="description" content="Blog page by of Christoph Fricke" />
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,500,700|Roboto:400,500,700" />   <link rel="stylesheet" href="../_assets/css/blogPage.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,500,700|Roboto:400,500,700" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="../_assets/css/blogPage.css" />
 
     <script>
         (function (i, s, o, g, r, a, m) {
@@ -57,8 +59,16 @@ if (!isset($_GET['blog'])) {
 <body>
     <iframe class="display" src="<?php echo $path ?>"></iframe>
     <footer class="footer">
-        <a href="">Previous Post</a>
-        <a href="">Next Post</a>
+        <a class="footer__home" href="../">
+            <svg class="footer__icon" version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192.000000 192.000000" preserveAspectRatio="xMidYMid meet">
+                <g transform="translate(0.000000,192.000000) scale(0.100000,-0.100000)" stroke="none">
+                    <path d="M785 1901 c-168 -35 -297 -96 -430 -202 -245 -195 -388 -548 -345 -854 52 -373 295 -674 637 -791 132 -45 23 -58 368 -51 218 10 419 92 590 241 l40 35 -84 85 -84 84 -61 -49 c-327 -264 -818 -189 -1051 161 -274 413 -59 968 425 1097 88 23 262 23 350 -1 92 -25 216 -88 278 -142 l54 -47 84 84 85 84 -55 50 c-61 57 -157 116 -255 158 -162 70 -380 93 -546 58z"/>
+                    <path d="M600 960 l0 -480 120 0 120 0 0 180 0 180 120 0 120 0 0 120 0 120 -120 0 -120 0 0 60 0 60 240 0 240 0 0 120 0 120 -360 0 -360 0 0 -480z"/>
+                </g>
+            </svg>
+        </a>
+        <a class="footer__navigation button--flat " href=""><i class="material-icons">arrow_back</i>Previous</a>
+        <a class="footer__navigation button--flat" href="">Next<i class="material-icons">arrow_forward</i></a>
     </footer>
 </body>
 </html>

@@ -11,6 +11,8 @@
 }
 
 .footer {
+    display: flex;
+    align-items: center;
     position: fixed;
     left: 0;
     right: 0;
@@ -18,4 +20,17 @@
     height: 50px;
     background-color: $color-primary-700;
     box-shadow: $elevation-4dp;
+    padding-left: 5%;
+    &__icon {
+        display: block;
+        width: 32px;
+        height: 32px;
+        fill: $icons-light-active;
+    }
+    &__navigation {
+        display: flex;
+        align-items: center;
+        color: $text-light-primary;
+        margin-left: 20px;
+    }
 }
