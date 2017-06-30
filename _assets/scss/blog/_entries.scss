@@ -26,8 +26,9 @@
         font-weight: 400;
     }
     &__button {
-        display: block;
+        display: inline-block;
         text-align: right;
+        margin: 0 0 0 auto;
         text-decoration: none;
     }
 }
