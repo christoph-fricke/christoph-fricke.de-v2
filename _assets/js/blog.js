@@ -68,7 +68,7 @@ function blogHandler(data) {
         summary.setAttribute("class", "entries__summary");
         summary.appendChild(document.createTextNode(data[x].summary));
 
-        var button = document.createElement("button");
+        var button = document.createElement("a");
         button.setAttribute("class", "entries__button button--flat");
         button.setAttribute("href", "page.php?blog=" + data[x].id);
         button.appendChild(document.createTextNode("Read more"));
