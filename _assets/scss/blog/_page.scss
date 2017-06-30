@@ -1,0 +1,21 @@
+.display {
+    position: fixed;
+    border: none;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: $color-grey-100;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0px;
+    height: 50px;
+    background-color: $color-primary-700;
+    box-shadow: $elevation-4dp;
+}

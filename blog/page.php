@@ -35,7 +35,7 @@ if (!isset($_GET['blog'])) {
     <meta name="author" content="Christoph Fricke" />
     <meta name="description" content="Blog page by of Christoph Fricke" />
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,500,700|Roboto:400,500,700" />    <link rel="stylesheet" href="../_assets/css/blogPage.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:400,500,700|Roboto:400,500,700" />   <link rel="stylesheet" href="../_assets/css/blogPage.css" />
 
     <script>
         (function (i, s, o, g, r, a, m) {
@@ -56,5 +56,9 @@ if (!isset($_GET['blog'])) {
 </head>
 <body>
     <iframe class="display" src="<?php echo $path ?>"></iframe>
+    <footer class="footer">
+        <a href="">Previous Post</a>
+        <a href="">Next Post</a>
+    </footer>
 </body>
 </html>
