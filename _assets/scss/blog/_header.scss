@@ -1,0 +1,27 @@
+.header {
+    &__container {
+        height: 500px;
+        background-color: $color-primary-500;
+        box-shadow: $elevation-4dp;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        //The margin is "hard coded". It is the sum of 100px and the profile width / 2
+        margin-bottom: 250px;
+    }
+    &__title {
+        font-size: 3rem;
+        color: $text-light-primary;
+    }
+    &__image {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        width: 300px;
+        border-radius: 100%;
+        border: $color-grey-100 solid 10px;
+        box-shadow: $elevation-6dp;
+    }
+}

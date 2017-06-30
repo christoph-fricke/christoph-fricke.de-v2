@@ -1,0 +1,32 @@
+.entries {
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 100px;
+    }
+    &__card {
+        width: 750px;
+        padding: 20px;
+    }
+    &__title {
+        color: $text-dark-primary;
+        font-size: 2rem;
+        font-weight: 500;
+        margin: 0 0 10px 0;
+    }
+    &__date {
+        color: $text-dark-secondary;
+        font-weight: 400;
+        margin: 0 0 20px 0;
+    }
+    &__summary {
+        margin: 0;
+        color: $text-dark-primary;
+        font-weight: 400;
+    }
+    &__button {
+        display: block;
+        margin: 0 0 0 auto;
+    }
+}
