@@ -29,4 +29,9 @@
         display: flex;
         justify-content: flex-end;
     }
+    &__errorMessage {
+        font-size: 3rem;
+        color: $text-dark-secondary;
+        margin: 0;
+    }
 }
