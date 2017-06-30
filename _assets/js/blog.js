@@ -68,8 +68,11 @@ function blogHandler(data) {
         summary.setAttribute("class", "entries__summary");
         summary.appendChild(document.createTextNode(data[x].summary));
 
+        var buttonContainer = document.createElement("div");
+        buttonContainer.setAttribute("class", "entries__buttonContainer");
+
         var button = document.createElement("a");
-        button.setAttribute("class", "entries__button button--flat");
+        button.setAttribute("class", "button--flat");
         button.setAttribute("href", "page.php?blog=" + data[x].id);
         button.appendChild(document.createTextNode("Read more"));
 
@@ -77,7 +80,8 @@ function blogHandler(data) {
         card.appendChild(title);
         card.appendChild(date);
         card.appendChild(summary);
-        card.appendChild(button);
+        buttonContainer.appendChild(button);
+        card.appendChild(buttonContainer);
 
         blogContainer.appendChild(card);
     }

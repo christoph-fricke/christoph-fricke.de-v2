@@ -25,10 +25,8 @@
         color: $text-dark-primary;
         font-weight: 400;
     }
-    &__button {
-        display: inline-block;
-        text-align: right;
-        margin: 0 0 0 auto;
-        text-decoration: none;
+    &__buttonContainer {
+        display: flex;
+        justify-content: flex-end;
     }
 }
