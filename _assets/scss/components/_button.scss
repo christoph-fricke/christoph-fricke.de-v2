@@ -1,5 +1,5 @@
 .button {
-    &__raised {
+    &--raised {
         background-color: $color-secondary-200;
         color: $text-dark-primary;
         text-decoration: none;
@@ -20,7 +20,7 @@
             font-size: 1rem;
         }
     }
-    &__flat {
+    &--flat {
         color: rgba($color-secondary-400, 0.87);
         background-color: transparent;
         border: none;
