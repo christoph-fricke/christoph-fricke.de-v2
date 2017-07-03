@@ -34,7 +34,11 @@ function getBlogs() {
         request.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 getToken();
-                response = JSON.parse(this.responseText);
+                if (request.responseText[0] != "[") {
+                    response = [];
+                } else {
+                    response = JSON.parse(this.responseText);
+                }
                 blogHandler(response);
             }
         };
