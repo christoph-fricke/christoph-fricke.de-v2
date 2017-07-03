@@ -34,5 +34,9 @@
         font-size: 3rem;
         color: $text-dark-secondary;
         margin: 0;
+        text-align: center;
+        @media screen and (max-width: 600px) {
+            font-size: 2rem;
+        }
     }
 }
