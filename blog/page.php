@@ -1,6 +1,10 @@
 <?php
 require_once('../_assets/php/dbConnector.php');
 
+$path = '';
+$pathNext = '';
+$pathPrevious = '';
+
 if (!isset($_GET['blog'])) {
     $path = 'assets/error.php?type=0';
 } else {
@@ -13,11 +17,41 @@ if (!isset($_GET['blog'])) {
 
         if ($result !== false) {
             $path = "entries/{$result['path']}";
+            getNextBlog();
+            getPreviousBlog();
         } else {
             $path = 'assets/error.php?type=1';
         }
     } catch (Exeption $e) {
         $path = 'assets/error.php?type=2';
+    }
+}
+
+function getNextBlog()
+{
+    $sql = 'SELECT path FROM blogs WHERE id > :id LIMIT 1';
+    $prepared = $pdo -> prepare($sql);
+    $prepared -> execute(array('id' => $blogID));
+    $result = $prepared -> fetch(PDO::FETCH_ASSOC);
+
+    if ($result !== false) {
+        $pathNext = "entries/{$result['path']}";
+    } else {
+        $pathNext = '';
+    }
+}
+
+function getPreviousBlog()
+{
+    $sql = 'SELECT path FROM blogs WHERE id < :id LIMIT 1';
+    $prepared = $pdo -> prepare($sql);
+    $prepared -> execute(array('id' => $blogID));
+    $result = $prepared -> fetch(PDO::FETCH_ASSOC);
+
+    if ($result !== false) {
+        $pathPrevious = "entries/{$result['path']}";
+    } else {
+        $pathPrevious = '';
     }
 }
 ?>
@@ -67,8 +101,21 @@ if (!isset($_GET['blog'])) {
                 </g>
             </svg>
         </a>
-        <a class="footer__navigation button--flat " href=""><i class="material-icons">arrow_back</i>Previous</a>
-        <a class="footer__navigation button--flat" href="">Next<i class="material-icons">arrow_forward</i></a>
+        <a class="footer__navigation button--flat" href="<?php echo $pathPrevious ?>"><i class="material-icons">arrow_back</i>Previous</a>
+        <a class="footer__navigation button--flat" href="<?php echo $pathNext ?>">Next<i class="material-icons">arrow_forward</i></a>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll(".footer__navigation").forEach(function(element) {
+                if(element.getAttribute("href") === "") {
+                    element.classList.add("footer__navigation--disabled");
+                    element.addEventListener("click", function(event) {
+                        event.preventDefault();
+                    }, false);
+                }
+            });
+        }, false);
+    </script>
 </body>
 </html>

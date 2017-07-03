@@ -32,5 +32,9 @@
         align-items: center;
         color: $text-light-primary;
         margin-left: 20px;
+        &--disabled {
+            cursor: default;
+            color: $text-light-disabled;
+        }
     }
 }
