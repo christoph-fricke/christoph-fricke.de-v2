@@ -46,7 +46,7 @@ function getBlogs() {
 }
 
 /**
- * Inserts the recieves blogs into the page
+ * Inserts the recieves blogs into the page. Inserts an errorMessage if there are no blog entries
  * @param {Object} data 
  */
 function blogHandler(data) {
