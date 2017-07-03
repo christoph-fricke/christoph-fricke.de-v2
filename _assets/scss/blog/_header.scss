@@ -13,6 +13,10 @@
             height: 300px;
             margin-bottom: 175px;
         }
+        @media screen and (max-height: 500px) {
+            height: 250px;
+            margin-bottom: 175px;
+        }
     }
     &__title {
         font-size: 3rem;
@@ -32,6 +36,10 @@
         border: $color-grey-100 solid 8px;
         box-shadow: $elevation-6dp;
         @media screen and (max-width: 600px) {
+            width: 150px;
+            border: $color-grey-100 solid 5px;
+        }
+        @media screen and (max-height: 500px) {
             width: 150px;
             border: $color-grey-100 solid 5px;
         }
