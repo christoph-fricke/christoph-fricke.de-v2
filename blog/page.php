@@ -62,7 +62,7 @@ function getPreviousBlog($pdo, $blogID)
     <title>Christoph Fricke | Blog</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="../_assets/img/favicon.ico" />
+    <link rel="icon" href="../_assets/img/favicons/favicon.ico" />
 
     <link rel="manifest" href="../manifest.json" />
     <meta name="theme-color" content="#009688">
