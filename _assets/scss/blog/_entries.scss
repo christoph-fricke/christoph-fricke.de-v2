@@ -9,12 +9,16 @@
         width: 100%;
         max-width: 750px;
         padding: 20px;
+        margin-bottom: 20px;
+        &:last-child {
+           margin-bottom: 0; 
+        }
     }
     &__title {
         color: $text-dark-primary;
         font-size: 2rem;
         font-weight: 500;
-        margin: 0 0 10px 0;
+        margin: 0;
     }
     &__date {
         color: $text-dark-secondary;
@@ -22,7 +26,7 @@
         margin: 0 0 20px 0;
     }
     &__summary {
-        margin: 0;
+        margin: 0 0 10px 0;
         color: $text-dark-primary;
         font-weight: 400;
     }
