@@ -35,6 +35,9 @@
         &--disabled {
             cursor: default;
             color: $text-light-disabled;
+            &:hover {
+                background-color: transparent;
+            }
         }
     }
 }

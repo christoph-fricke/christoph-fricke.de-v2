@@ -17,8 +17,8 @@ if (!isset($_GET['blog'])) {
 
         if ($result !== false) {
             $path = "entries/{$result['path']}";
-            getNextBlog();
-            getPreviousBlog();
+            $idNext = getNextBlog($pdo, $blogID);
+            $idPrevious = getPreviousBlog($pdo, $blogID);
         } else {
             $path = 'assets/error.php?type=1';
         }
@@ -27,31 +27,31 @@ if (!isset($_GET['blog'])) {
     }
 }
 
-function getNextBlog()
+function getNextBlog($pdo, $blogID)
 {
-    $sql = 'SELECT path FROM blogs WHERE id > :id LIMIT 1';
+    $sql = 'SELECT id FROM blogs WHERE id > :id ORDER BY id LIMIT 1';
     $prepared = $pdo -> prepare($sql);
     $prepared -> execute(array('id' => $blogID));
     $result = $prepared -> fetch(PDO::FETCH_ASSOC);
 
     if ($result !== false) {
-        $pathNext = "entries/{$result['path']}";
+        return "page.php?blog={$result['id']}";
     } else {
-        $pathNext = '';
+        return '';
     }
 }
 
-function getPreviousBlog()
+function getPreviousBlog($pdo, $blogID)
 {
-    $sql = 'SELECT path FROM blogs WHERE id < :id LIMIT 1';
+    $sql = 'SELECT id FROM blogs WHERE id < :id ORDER BY id DESC LIMIT 1 ';
     $prepared = $pdo -> prepare($sql);
     $prepared -> execute(array('id' => $blogID));
     $result = $prepared -> fetch(PDO::FETCH_ASSOC);
 
     if ($result !== false) {
-        $pathPrevious = "entries/{$result['path']}";
+        return "page.php?blog={$result['id']}";
     } else {
-        $pathPrevious = '';
+        return '';
     }
 }
 ?>
@@ -101,8 +101,8 @@ function getPreviousBlog()
                 </g>
             </svg>
         </a>
-        <a class="footer__navigation button--flat" href="<?php echo $pathPrevious ?>"><i class="material-icons">arrow_back</i>Previous</a>
-        <a class="footer__navigation button--flat" href="<?php echo $pathNext ?>">Next<i class="material-icons">arrow_forward</i></a>
+        <a class="footer__navigation button--flat" href="<?php echo $idPrevious ?>"><i class="material-icons">arrow_back</i>Previous</a>
+        <a class="footer__navigation button--flat" href="<?php echo $idNext ?>">Next<i class="material-icons">arrow_forward</i></a>
     </footer>
 
     <script>
