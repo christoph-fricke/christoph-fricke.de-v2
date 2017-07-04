@@ -1,0 +1,47 @@
+.header {
+    &__container {
+        height: 500px;
+        background-color: $color-primary-500;
+        box-shadow: $elevation-4dp;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        //The margin is "hard coded". It is the sum of 100px and the profile width / 2
+        margin-bottom: 225px;
+        @media screen and (max-width: 600px) {
+            height: 300px;
+            margin-bottom: 175px;
+        }
+        @media screen and (max-height: 500px) {
+            height: 250px;
+            margin-bottom: 175px;
+        }
+    }
+    &__title {
+        font-size: 3rem;
+        color: $text-light-primary;
+        text-align: center;
+        @media screen and (max-width: 600px) {
+            font-size: 2rem;
+        }
+    }
+    &__image {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        width: 250px;
+        border-radius: 100%;
+        border: $color-grey-100 solid 8px;
+        box-shadow: $elevation-6dp;
+        @media screen and (max-width: 600px) {
+            width: 150px;
+            border: $color-grey-100 solid 5px;
+        }
+        @media screen and (max-height: 500px) {
+            width: 150px;
+            border: $color-grey-100 solid 5px;
+        }
+    }
+}

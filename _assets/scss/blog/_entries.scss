@@ -1,0 +1,46 @@
+.entries {
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 20px 100px 20px;
+    }
+    &__card {
+        width: 100%;
+        max-width: 750px;
+        padding: 20px;
+        margin-bottom: 20px;
+        &:last-child {
+           margin-bottom: 0; 
+        }
+    }
+    &__title {
+        color: $text-dark-primary;
+        font-size: 2rem;
+        font-weight: 500;
+        margin: 0;
+    }
+    &__date {
+        color: $text-dark-secondary;
+        font-weight: 400;
+        margin: 0 0 20px 0;
+    }
+    &__summary {
+        margin: 0 0 10px 0;
+        color: $text-dark-primary;
+        font-weight: 400;
+    }
+    &__buttonContainer {
+        display: flex;
+        justify-content: flex-end;
+    }
+    &__errorMessage {
+        font-size: 3rem;
+        color: $text-dark-secondary;
+        margin: 0;
+        text-align: center;
+        @media screen and (max-width: 600px) {
+            font-size: 2rem;
+        }
+    }
+}

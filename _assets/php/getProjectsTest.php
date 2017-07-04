@@ -11,7 +11,7 @@ $response = [
         'category' => 'Website',
         'date' => 'March, 2017',
         'link' => 'http://shpioneers.de',
-        'image' => 'shpioneers.jpg',
+        'image' => 'test.png',
         'text' => 'I created the website together with a friend for a racing team in our school. They participate in the "F1 in schools" compettion. They were able to enchange the social interactions with the help of their new website.'
     ],
     [

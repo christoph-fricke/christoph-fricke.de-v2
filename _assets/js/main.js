@@ -316,7 +316,6 @@ function getProjects() {
             getProjects();
         }, 50);
     }
-
 }
 
 /**
@@ -406,7 +405,7 @@ function createProjectsDots(cardList) {
     for (var x = 0; x < cardList.length; x++) {
         var dotContainer = document.createElement("div");
         dotContainer.setAttribute("class", "projects__dot-container");
-        for(var y = 0; y < cardList.length; y++) {
+        for (var y = 0; y < cardList.length; y++) {
             var dot = document.createElement("div");
             dot.setAttribute("class", "projects__dot");
             dotContainer.appendChild(dot);
