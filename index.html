@@ -73,9 +73,9 @@
                 <div class="card">
                     <i class="about__icon material-icons">person</i>
                     <p class="about__text">
-                        I got interested in programming when I was still young. My first magic moment with a computer
-                        was building my own at the age of 7. To be honest, I wanted to build Darth Vaders mask... Well it
-                        turned into a full desktop computer.
+                        I got interested in programming when I was still young. My first magic moment with a computer was building my own at the
+                        age of 7. To be honest, I wanted to build Darth Vaders mask... Well it turned into a full desktop
+                        computer.
                         <br> Time past and I got more and more interested in software. I started doing simple web stuff now
                         and then, since it was easily accessible. With 16 I got more seriously into programming and since
                         then I continued to look into different programming languages and technologies. Web development is
@@ -95,8 +95,8 @@
                     <i class="about__icon material-icons">school</i>
                     <p class="about__text">
                         I went to school in Germany and graduated in 2017.
-                        <br> All I have known about programming until this point is self tought. I am planning to start studying computer
-                        science later this year in order to get a job in that industry in the near future.
+                        <br> All I have known about programming until this point is self tought. I am planning to start studying
+                        computer science later this year in order to get a job in that industry in the near future.
                     </p>
                 </div>
             </section>
@@ -115,9 +115,15 @@
             <section class="contact">
                 <h3 class="contact__header">Drop me an email: <a href="mailto:christoph@frickeonline.de" class="contact__header--link">christoph@frickeonline.de</a></h3>
                 <form class="contact__form grid__form" action="_assets/php/sendMail.php" method="POST" novalidate>
-                    <input id="name" class="contact__input contact__input--name" type="text" name="name" placeholder="Name" />
-                    <input id="email" class="contact__input contact__input--email" type="email" name="email" placeholder="Email" />
-                    <textarea id="message" class="contact__input contact__input--textarea" type="text" name="message" placeholder="Message"></textarea>
+                    <div class="contact__input-container contact__input-container--name">
+                        <input id="name" class="contact__input" type="text" name="name" placeholder="Name" />
+                    </div>
+                    <div class="contact__input-container contact__input-container--email">
+                        <input id="email" class="contact__input" type="email" name="email" placeholder="Email" />
+                    </div>
+                    <div class="contact__input-container contact__input-container--textarea">
+                        <textarea id="message" class="contact__input contact__input--textarea" type="text" name="message" placeholder="Message"></textarea>
+                    </div>
                     <p class="contact__feedback"></p>
                     <button class="contact__submit button--raised" type="submit">submit</button>
                 </form>
