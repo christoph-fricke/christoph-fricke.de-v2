@@ -1,11 +1,11 @@
 <?php
-// Expects an error type as get parameter.
+// Expects an error type as a "get" parameter.
 // 0 means "no blog defined"
 // 1 means "non existing blog id"
 $errorType = $_GET['type'];
 if ($errorType == 0) {
-    $message = 'No blog id provided as get parameter.';
-} elseif ($errorType == 1) {
+    $message = 'No blog id provided as a parameter.';
+} else if ($errorType == 1) {
     $message = 'The requested blog post does not exits.';
 } else {
     $message = 'Something went wrong.';
