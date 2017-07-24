@@ -249,7 +249,7 @@ function scrollHandler(scrollTop, target, duration) {
  */
 function positionHandler() {
     var scrollTop = getScrollTop();
-    var topMargin = 74;
+    var topMargin = 100;
     if (window.innerWidth < 600) {
         if (scrollTop >= document.querySelector("#home").offsetTop - topMargin) {
             document.querySelector(".fixbar__header-span").innerHTML = "home";
