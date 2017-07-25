@@ -2,13 +2,13 @@
     grid-area: about;
     margin-bottom: 100px; 
     &__icon {
-        margin: 10px;
+        margin: 20px 20px 0 20px;
         font-size: 48px;
         color: $icons-dark-active;
         cursor: default;
     }
     &__text {
         font-weight: 400;
-        margin: 10px;
+        margin: 10px 20px 20px 20px;
     }
 }
