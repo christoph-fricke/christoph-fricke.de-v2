@@ -263,6 +263,9 @@ function positionHandler() {
         if (scrollTop >= document.querySelector("#projects").offsetTop - topMargin) {
             document.querySelector(".fixbar__header-span").innerHTML = "projects";
         }
+        if (scrollTop >= document.querySelector("#offer").offsetTop - topMargin) {
+            document.querySelector(".fixbar__header-span").innerHTML = "projects";
+        }
         if (scrollTop >= document.querySelector("#contact").offsetTop - topMargin) {
             document.querySelector(".fixbar__header-span").innerHTML = "contact";
         }
@@ -284,11 +287,16 @@ function positionHandler() {
         if (scrollTop >= document.querySelector("#projects").offsetTop - topMargin) {
             document.querySelector("#linkProjects").classList.add("fixbar__link--active");
             document.querySelector("#linkBlog").classList.remove("fixbar__link--active");
+            document.querySelector("#linkOffer").classList.remove("fixbar__link--active");
+        }
+        if (scrollTop >= document.querySelector("#offer").offsetTop - topMargin) {
+            document.querySelector("#linkOffer").classList.add("fixbar__link--active");
+            document.querySelector("#linkProjects").classList.remove("fixbar__link--active");
             document.querySelector("#linkContact").classList.remove("fixbar__link--active");
         }
         if (scrollTop >= document.querySelector("#contact").offsetTop - topMargin) {
             document.querySelector("#linkContact").classList.add("fixbar__link--active");
-            document.querySelector("#linkProjects").classList.remove("fixbar__link--active");
+            document.querySelector("#linkOffer").classList.remove("fixbar__link--active");
         }
     }
 }
