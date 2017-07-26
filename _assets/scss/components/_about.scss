@@ -1,14 +1,17 @@
 .about {
     grid-area: about;
-    margin-bottom: 100px; 
+    margin-bottom: 100px;
+    &__container {
+        padding: 20px;
+    }
     &__icon {
-        margin: 20px 20px 0 20px;
         font-size: 48px;
         color: $icons-dark-active;
         cursor: default;
+        display: block;
     }
     &__text {
         font-weight: 400;
-        margin: 10px 20px 20px 20px;
+        margin: 0;
     }
 }
