@@ -264,7 +264,7 @@ function positionHandler() {
             document.querySelector(".fixbar__header-span").innerHTML = "projects";
         }
         if (scrollTop >= document.querySelector("#offer").offsetTop - topMargin) {
-            document.querySelector(".fixbar__header-span").innerHTML = "projects";
+            document.querySelector(".fixbar__header-span").innerHTML = "offer";
         }
         if (scrollTop >= document.querySelector("#contact").offsetTop - topMargin) {
             document.querySelector(".fixbar__header-span").innerHTML = "contact";
