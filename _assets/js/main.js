@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
     getToken();
     getProjects();
     // Handles the Fixbar handling depending on the window-size on load
-    if (window.innerWidth > 450) {
+    if (window.innerWidth > 520) {
         window.addEventListener("scroll", setUserScrolled, false);
     } else {
         document.querySelector(".fixbar").classList.add("fixbar--active");
@@ -36,7 +36,7 @@ document.querySelector(".contact__form").addEventListener("submit", function (ev
 
 //Controls wether the appBarHandler should get called when the page gets resized after load
 window.addEventListener("resize", function () {
-    if (window.innerWidth > 450) {
+    if (window.innerWidth > 520) {
         window.addEventListener("scroll", setUserScrolled, false);
         document.querySelector(".sidedrawer").classList.remove("sidedrawer--active");
         appBarHandler();
@@ -250,7 +250,7 @@ function scrollHandler(scrollTop, target, duration) {
 function positionHandler() {
     var scrollTop = getScrollTop();
     var topMargin = 100;
-    if (window.innerWidth < 600) {
+    if (window.innerWidth < 700) {
         if (scrollTop >= document.querySelector("#home").offsetTop - topMargin) {
             document.querySelector(".fixbar__header-span").innerHTML = "home";
         }
