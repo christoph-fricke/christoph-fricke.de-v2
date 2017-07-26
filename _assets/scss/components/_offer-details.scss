@@ -1,0 +1,39 @@
+.offer-details {
+    grid-area: offer-details;
+    margin-bottom: 100px;
+    display: grid;
+    grid-gap: 50px;
+    &__container {
+        padding: 30px;
+        display: grid;
+        grid-gap: 50px;
+        grid-template-columns: auto 1fr;
+        grid-template-areas: "icon text";
+        &--reversed {
+            grid-template-columns: 1fr auto;
+            grid-template-areas: "text icon";
+            text-align: right;
+        }
+    }
+    &__icon-container {
+        grid-area: icon;
+        background-color: $color-secondary-200;
+        padding: 25px;
+        border-radius: 100%;
+        box-shadow: $elevation-2dp;
+    }
+    &__icon {
+        color: $icons-dark-active;
+        font-size: 100px;
+    }
+    &__text-container {
+        grid-area: text;
+    }
+    &__header {
+        font-size: 2rem;
+        font-weight: 500;
+        margin: 0;
+        margin-bottom: 20px;
+    }
+
+}

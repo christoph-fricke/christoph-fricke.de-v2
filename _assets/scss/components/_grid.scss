@@ -2,7 +2,7 @@
     &__main {
         display: grid;
         grid-template-columns: auto 1000px auto;
-        grid-template-areas: "header header header" "appbar appbar appbar" ". about ." "blog blog blog" ". projects ." "offer offer offer" ". contact ." "footer footer footer";
+        grid-template-areas: "header header header" "appbar appbar appbar" ". about ." "blog blog blog" ". projects ." "offer offer offer" ". offer-details ." ". contact ." "footer footer footer";
         @media screen and (max-width: 1040px) {
             grid-template-columns: 20px 1fr 20px;
         }
