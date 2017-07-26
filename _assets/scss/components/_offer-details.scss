@@ -5,11 +5,15 @@
         padding: 30px;
         &--reversed {
             text-align: right;
+            @media screen and (max-width: 600px) {
+                text-align: left;
+            }
         }
     }
     &__icon-container {
         grid-area: icon;
         align-self: start;
+        justify-self: start;
         background-color: $color-secondary-200;
         padding: 25px;
         border-radius: 100%;
@@ -19,6 +23,9 @@
         color: $icons-dark-active;
         font-size: 100px;
         display: block;
+        @media screen and (max-width: 750px) {
+            font-size: 50px;
+        }
     }
     &__text-container {
         grid-area: text;
@@ -28,8 +35,13 @@
         font-weight: 500;
         margin: 0;
         margin-bottom: 20px;
+        @media screen and (max-width: 500px) {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
     }
     &__text {
         text-align: left;
+        margin: 0;
     }
 }

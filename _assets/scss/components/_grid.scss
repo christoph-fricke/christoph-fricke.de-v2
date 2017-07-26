@@ -47,6 +47,15 @@
         &--reversed {
             grid-template-columns: 1fr auto;
             grid-template-areas: "text icon";
+            @media screen and (max-width: 600px) {
+                grid-template-columns: 1fr;
+                grid-template-areas: "icon" "text";
+            }
+        }
+        @media screen and (max-width: 600px) {
+            grid-template-columns: 1fr;
+            grid-template-areas: "icon" "text";
+            grid-gap: 30px;
         }
     }
     &__form {
