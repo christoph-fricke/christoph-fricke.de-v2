@@ -9,6 +9,7 @@
     }
     &__icon-container {
         grid-area: icon;
+        align-self: start;
         background-color: $color-secondary-200;
         padding: 25px;
         border-radius: 100%;
@@ -17,6 +18,7 @@
     &__icon {
         color: $icons-dark-active;
         font-size: 100px;
+        display: block;
     }
     &__text-container {
         grid-area: text;
@@ -27,5 +29,7 @@
         margin: 0;
         margin-bottom: 20px;
     }
-
+    &__text {
+        text-align: left;
+    }
 }
