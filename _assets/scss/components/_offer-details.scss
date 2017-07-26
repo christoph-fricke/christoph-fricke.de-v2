@@ -1,17 +1,9 @@
 .offer-details {
     grid-area: offer-details;
     margin-bottom: 100px;
-    display: grid;
-    grid-gap: 50px;
     &__container {
         padding: 30px;
-        display: grid;
-        grid-gap: 50px;
-        grid-template-columns: auto 1fr;
-        grid-template-areas: "icon text";
         &--reversed {
-            grid-template-columns: 1fr auto;
-            grid-template-areas: "text icon";
             text-align: right;
         }
     }

@@ -35,6 +35,20 @@
             grid-template-areas: "card card" "navigationLeft navigationRight";
         }
     }
+    &__offer {
+        display: grid;
+        grid-gap: 50px;
+    }
+    &__offer-container {
+        display: grid;
+        grid-gap: 50px;
+        grid-template-columns: auto 1fr;
+        grid-template-areas: "icon text";
+        &--reversed {
+            grid-template-columns: 1fr auto;
+            grid-template-areas: "text icon";
+        }
+    }
     &__form {
         display: grid;
         grid-template-columns: 1fr 1fr;
