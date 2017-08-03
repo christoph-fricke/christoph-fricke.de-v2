@@ -34,6 +34,7 @@
                 <a id="linkAbout" href="#about" class="fixbar__link">about</a>
                 <a id="linkBlog" href="#blog" class="fixbar__link">blog</a>
                 <a id="linkProjects" href="#projects" class="fixbar__link">projects</a>
+                <a id="linkOffer" href="#offer" class="fixbar__link">offer</a>
                 <a id="linkContact" href="#contact" class="fixbar__link">contact</a>
             </div>
             <div class="fixbar__mobile-container">
@@ -46,6 +47,7 @@
             <a href="#about" class="sidedrawer__link"><i class="sidedrawer__icon material-icons">person</i>about</a>
             <a href="#blog" class="sidedrawer__link"><i class="sidedrawer__icon material-icons">library_books</i>blog</a>
             <a href="#projects" class="sidedrawer__link"><i class="sidedrawer__icon material-icons">code</i>projects</a>
+            <a href="#offer" class="sidedrawer__link"><i class="sidedrawer__icon material-icons">web</i>offer</a>
             <a href="#contact" class="sidedrawer__link"><i class="sidedrawer__icon material-icons">mail</i>contact</a>
         </nav>
         <div class="sidedrawer__spaner"></div>
@@ -60,10 +62,11 @@
                 <a href="#about" class="appbar__link">about</a>
                 <a href="#blog" class="appbar__link">blog</a>
                 <a href="#projects" class="appbar__link">projects</a>
+                <a href="#offer" class="appbar__link">offer</a>
                 <a href="#contact" class="appbar__link">contact</a>
             </nav>
             <section id="about" class="about grid__about">
-                <div class="card">
+                <div class="about__container card">
                     <i class="about__icon material-icons">person</i>
                     <p class="about__text">
                         I got interested in programming when I was still young. My first magic moment with a computer was building my own at the
@@ -75,7 +78,7 @@
                         still something I do very frequently and enjoy doing most right now.
                     </p>
                 </div>
-                <div class="card">
+                <div class="about__container card">
                     <i class="about__icon material-icons">code</i>
                     <p class="about__text">
                         I am skilled in web-development, using languages like HTML5, CSS3, SCSS, Javascript, PHP.
@@ -84,7 +87,7 @@
                         <br> Whenever I work on a project, I use Git in combination with GitHub to manage my code effectively.
                     </p>
                 </div>
-                <div class="card">
+                <div class="about__container card">
                     <i class="about__icon material-icons">school</i>
                     <p class="about__text">
                         I went to school in Germany and graduated in 2017.
@@ -101,11 +104,78 @@
                 <i class="projects__icon projects__icon--left material-icons">arrow_back</i>
                 <i class="projects__icon projects__icon--right material-icons">arrow_forward</i>
             </section>
-            <section id="contact" class="offer">
+            <section id="offer" class="offer">
                 <h3 class="offer__text offer__text--main">Are you looking for your own custom website?</h3>
                 <h4 class="offer__text offer__text--sub">Let me help you get your online presence running!</h4>
             </section>
-            <section class="contact">
+            <section class="offer-details grid__offer">
+                <div class="offer-details__container grid__offer-container card">
+                    <div class="offer-details__icon-container">
+                        <i class="offer-details__icon material-icons">web</i>
+                    </div>
+                    <div class="offer-details__text-container">
+                        <h3 class="offer-details__header">Websites are important!</h3>
+                        <p class="offer-details__text">
+                            We are spending alot of our time online. It got more convinient for most people to search for information on the internet
+                            than somewhere else. Without having your business present on the internet, you lose potential
+                            customers. Customers you might need. Promote your business, share important information and give your customers a taste
+                            of your company.
+                            <br> Get your custom website today and increase your customer count.
+                        </p>
+                    </div>
+                </div>
+                <div class="offer-details__container offer-details__container--reversed grid__offer-container grid__offer-container--reversed card">
+                    <div class="offer-details__icon-container">
+                        <i class="offer-details__icon material-icons">palette</i>
+                    </div>
+                    <div class="offer-details__text-container">
+                        <h3 class="offer-details__header">A design, your will be satisfied with!</h3>
+                        <p class="offer-details__text">
+                            A good design is key for a pleasing user experience. Most users will leave your site after just a few seconds if your website
+                            is not optimized for their device. Even with most users coming from mobile devices, a lot of
+                            websites are not optimized for them.
+                        </p>
+                        <p class="offer-details__text">
+                            Let us create a design for you that is optimized for every device and feels just right and easy to use for your users. Why?
+                            Because a good user experience is key!
+                        </p>
+                    </div>
+                </div>
+                <div class="offer-details__container offer-details__container grid__offer-container card">
+                    <div class="offer-details__icon-container">
+                        <i class="offer-details__icon material-icons">code</i>
+                    </div>
+                    <div class="offer-details__text-container">
+                        <h3 class="offer-details__header">Efficiency, build from the ground up!</h3>
+                        <p class="offer-details__text">
+                            Do you know this website that just loads really slow? It it really annoying and you often leave the website before it has
+                            loaded, right? The reason for this is mostly unused code and overall not optimized files.
+                        </p>
+                        <p class="offer-details__text">
+                            While building your website from scratch, I can make sure that there is no unnessesary code. Smaller codebase, better load times.
+                            Together with optimized files and images, it provides your users a fast load time which leads
+                            to a pleasing user experience.
+                        </p>
+                    </div>
+                </div>
+                <div class="offer-details__container offer-details__container--reversed grid__offer-container grid__offer-container--reversed card">
+                    <div class="offer-details__icon-container">
+                        <i class="offer-details__icon material-icons">bug_report</i>
+                    </div>
+                    <div class="offer-details__text-container">
+                        <h3 class="offer-details__header">You found a bug? No problem!</h3>
+                        <p class="offer-details__text">
+                            No software is bug free. The same goes for websites. So it is pretty self evident that every bug that appears on your website,
+                            after it got published, gets fixed for free. They aren't normally a lot but it still would be a shame if the few remaining bugs won't get fixed, right?
+                        </p>
+                        <p class="offer-details__text">
+                            We can also talk about new features at any time.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section id="contact" class="contact card">
+                <h3 class="contact__header contact__header--first-line">Any questions? Feel free to contact me!</h3>
                 <h3 class="contact__header">Drop me an email: <a href="mailto:christoph@frickeonline.de" class="contact__header--link">christoph@frickeonline.de</a></h3>
                 <form class="contact__form grid__form" action="_assets/php/sendMail.php" method="POST" novalidate>
                     <div class="contact__input-container contact__input-container--name">

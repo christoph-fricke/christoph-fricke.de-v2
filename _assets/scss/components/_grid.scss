@@ -2,7 +2,7 @@
     &__main {
         display: grid;
         grid-template-columns: auto 1000px auto;
-        grid-template-areas: "header header header" "appbar appbar appbar" ". about ." "blog blog blog" ". projects ." "offer offer offer" ". contact ." "footer footer footer";
+        grid-template-areas: "header header header" "appbar appbar appbar" ". about ." "blog blog blog" ". projects ." "offer offer offer" ". offer-details ." ". contact ." "footer footer footer";
         @media screen and (max-width: 1040px) {
             grid-template-columns: 20px 1fr 20px;
         }
@@ -13,7 +13,7 @@
         @media screen and (max-width: 1040px) {
             grid-template-columns: 20px 1fr 20px;
         }
-        @media screen and (max-width: 600px) {
+        @media screen and (max-width: 700px) {
             grid-template-areas: ". mobile .";
         }
     }
@@ -35,9 +35,32 @@
             grid-template-areas: "card card" "navigationLeft navigationRight";
         }
     }
+    &__offer {
+        display: grid;
+        grid-gap: 50px;
+    }
+    &__offer-container {
+        display: grid;
+        grid-gap: 50px;
+        grid-template-columns: auto 1fr;
+        grid-template-areas: "icon text";
+        &--reversed {
+            grid-template-columns: 1fr auto;
+            grid-template-areas: "text icon";
+            @media screen and (max-width: 600px) {
+                grid-template-columns: 1fr;
+                grid-template-areas: "icon" "text";
+            }
+        }
+        @media screen and (max-width: 600px) {
+            grid-template-columns: 1fr;
+            grid-template-areas: "icon" "text";
+            grid-gap: 30px;
+        }
+    }
     &__form {
         display: grid;
-        grid-template-columns: 50% 50%;
+        grid-template-columns: 1fr 1fr;
         grid-template-areas: "name email" "textarea textarea" "feedback submit";
         grid-gap: 10px;
         @media screen and (max-width: 500px) {

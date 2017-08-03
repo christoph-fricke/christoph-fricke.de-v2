@@ -16,10 +16,10 @@
     &__icon {
         width: 48px;
         height: 48px;
-        fill: $icons-light-inactive;
+        fill: $icons-light-active;
         transition: $transition-standard;
         &:hover {
-            fill: $icons-light-active;
+            fill: $color-secondary-200;
         }
     }
     &__copy {

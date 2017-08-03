@@ -11,7 +11,7 @@
     box-shadow: $elevation-4dp;
     &__container {
         grid-area: container;
-        @media screen and (max-width: 600px) {
+        @media screen and (max-width: 700px) {
             display: none;
         }
     }
@@ -19,7 +19,7 @@
         grid-area: mobile;
         display: none;
         align-items: center;
-        @media screen and (max-width: 600px) {
+        @media screen and (max-width: 700px) {
             display: flex;
         }
     }
@@ -32,9 +32,6 @@
         margin: 0 10px;
         cursor: pointer;
         transition: $transition-standard;
-        @media screen and (max-width: 500px) {
-            font-size: 1.25rem;
-        }
         &:hover {
             color: $text-light-primary;
         }
