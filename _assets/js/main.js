@@ -368,6 +368,7 @@ function projectsHandler(data) {
         textSpanLink.setAttribute("class", "projects__info-text projects__info-text--faded projects__info-text--link");
         textSpanLink.setAttribute("href", data[x].link);
         textSpanLink.setAttribute("target", "_blank");
+        textSpanLink.setAttribute("rel", "noopener");
         textSpanLink.appendChild(document.createTextNode(data[x].link));
 
         var text = document.createElement("p");
