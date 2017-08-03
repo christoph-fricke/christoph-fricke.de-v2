@@ -9,6 +9,11 @@
                 text-align: left;
             }
         }
+        &--reversed .offer-details__icon-container {
+            @media screen and (max-width: 600px) {
+                justify-self: end;
+            }
+        }
     }
     &__icon-container {
         grid-area: icon;
