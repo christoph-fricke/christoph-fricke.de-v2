@@ -1,4 +1,2 @@
 #Ignore MariaDB connection config
 dbconfig.php
-node_modules
-dist
