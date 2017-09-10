@@ -207,7 +207,9 @@ function sendMail(name, email, message, feedbackField) {
 }
 
 /**
- * Checks if an email has a valid pattern
+ * Checks if an email has a valid pattern (abc@abc.de)
+ * @param {string} email Email which should get tested
+ * @return {boolean} Returns true if the email is valid 
  */
 function validateEmail(email) {
     var pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -215,11 +217,15 @@ function validateEmail(email) {
 }
 
 /**
- * Checks if a name has a valid pattern
+ * Checks if a name has a valid pattern.
+ * The name must be at least one char long and can contain letters and spaces
+ * @param {string} name The name which should get tested
+ * @return {boolean} Returns true if the name is valid
+ *  
  */
-function validateName(text) {
+function validateName(name) {
     var pattern = /^[A-Za-z ]{1,}$/;
-    return pattern.test(text);
+    return pattern.test(name);
 }
 
 /**
