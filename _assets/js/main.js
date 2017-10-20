@@ -6,7 +6,7 @@ var pageScrolled;
 // Internet Explorer 6-11
 var isIE = /*@cc_on!@*/ false || !!document.documentMode;
 
-if (isIE) {
+if (isIE || !CSS.supports('display', 'grid')) {
     alert("This website uses the css grid feature which is not supported by your browser. Please use another browser till the feature is supported.");
 }
 
