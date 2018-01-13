@@ -11,6 +11,7 @@ if (isIE || !CSS.supports('display', 'grid')) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector('.footer__copy').innerHTML = `&copy; ${new Date().getFullYear()}, Christoph Fricke`;
     getToken();
     getProjects();
     // Handles the Fixbar handling depending on the window-size on load
