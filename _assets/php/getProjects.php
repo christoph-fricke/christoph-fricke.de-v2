@@ -6,7 +6,7 @@ if (!isset($_SESSION['token']) || $_SESSION['token'] != $_POST['token']) {
 
 require_once('dbConnector.php');
 
-$sql = 'SELECT title, image, category, date, link, text FROM projects';
+$sql = 'SELECT title, image, category, date, link, text FROM projects ORDER BY id DESC';
 $result = $pdo -> query($sql);
 
 $return = $result -> fetchAll(PDO::FETCH_ASSOC);
