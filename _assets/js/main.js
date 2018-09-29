@@ -5,75 +5,111 @@ var pageScrolled;
 var isIE = /*@cc_on!@*/ false || !!document.documentMode;
 
 if (isIE || !CSS.supports('display', 'grid')) {
-    alert("This website uses the css grid feature which is not supported by your browser. Please use another browser till the feature is supported.");
+    alert(
+        'This website uses the css grid feature which is not supported by your browser. Please use another browser till the feature is supported.'
+    );
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    document.querySelector('.footer__copy').innerHTML = `&copy; ${new Date().getFullYear()}, Christoph Fricke`;
-    getProjects();
-    // Handles the Fixbar handling depending on the window-size on load
-    if (window.innerWidth > 520) {
-        window.addEventListener("scroll", setUserScrolled, false);
-    } else {
-        document.querySelector(".fixbar").classList.add("fixbar--active");
-    }
-}, false);
+document.addEventListener(
+    'DOMContentLoaded',
+    function() {
+        document.querySelector('.footer__copy').innerHTML = `&copy; ${new Date().getFullYear()}, Christoph Fricke`;
+        getProjects();
+        // Handles the Fixbar handling depending on the window-size on load
+        if (window.innerWidth > 520) {
+            window.addEventListener('scroll', setUserScrolled, false);
+        } else {
+            document.querySelector('.fixbar').classList.add('fixbar--active');
+        }
+    },
+    false
+);
 
-window.addEventListener("scroll", function () {
-    pageScrolled = true;
-}, false);
+window.addEventListener(
+    'scroll',
+    function() {
+        pageScrolled = true;
+    },
+    false
+);
 
 //Calls the contact event
-document.querySelector(".contact__form").addEventListener("submit", function (event) {
-    contactHandler(event);
-}, false);
-
+document.querySelector('.contact__form').addEventListener(
+    'submit',
+    function(event) {
+        contactHandler(event);
+    },
+    false
+);
 
 //Controls wether the appBarHandler should get called when the page gets resized after load
-window.addEventListener("resize", function () {
-    if (window.innerWidth > 520) {
-        window.addEventListener("scroll", setUserScrolled, false);
-        document.querySelector(".sidedrawer").classList.remove("sidedrawer--active");
-        appBarHandler();
-    } else {
-        window.removeEventListener("scroll", setUserScrolled, false);
-        document.querySelector(".fixbar").classList.add("fixbar--active");
-    }
-}, false);
-
+window.addEventListener(
+    'resize',
+    function() {
+        if (window.innerWidth > 520) {
+            window.addEventListener('scroll', setUserScrolled, false);
+            document.querySelector('.sidedrawer').classList.remove('sidedrawer--active');
+            appBarHandler();
+        } else {
+            window.removeEventListener('scroll', setUserScrolled, false);
+            document.querySelector('.fixbar').classList.add('fixbar--active');
+        }
+    },
+    false
+);
 
 //Detects the click of navigation links and adds an event to smooth scroll the page
-document.querySelectorAll(".fixbar__link, .appbar__link, .sidedrawer__link").forEach(function (element) {
-    element.addEventListener("click", function (event) {
-        event.preventDefault();
-        //Position of the target negative the appbar and 10px margin
-        var targetid = element.getAttribute("href").slice(1);
-        var target = document.querySelector("#" + targetid).offsetTop - 74;
-        scrollHandler(getScrollTop(), target, 300);
-    }, false);
+document.querySelectorAll('.fixbar__link, .appbar__link, .sidedrawer__link').forEach(function(element) {
+    element.addEventListener(
+        'click',
+        function(event) {
+            event.preventDefault();
+            //Position of the target negative the appbar and 10px margin
+            var targetid = element.getAttribute('href').slice(1);
+            var target = document.querySelector('#' + targetid).offsetTop - 74;
+            scrollHandler(getScrollTop(), target, 300);
+        },
+        false
+    );
 });
 
 //Controls the sidedrawer handling
-document.querySelector(".fixbar__sidedrawer-trigger").addEventListener("click", function () {
-    document.querySelector(".sidedrawer").classList.add("sidedrawer--active");
-    document.querySelector(".sidedrawer__spaner").classList.add("sidedrawer__spaner--active");
-}, false);
+document.querySelector('.fixbar__sidedrawer-trigger').addEventListener(
+    'click',
+    function() {
+        document.querySelector('.sidedrawer').classList.add('sidedrawer--active');
+        document.querySelector('.sidedrawer__spaner').classList.add('sidedrawer__spaner--active');
+    },
+    false
+);
 
-document.querySelectorAll(".sidedrawer__link, .sidedrawer__spaner").forEach(function (element) {
-    element.addEventListener("click", function () {
-        document.querySelector(".sidedrawer").classList.remove("sidedrawer--active");
-        document.querySelector(".sidedrawer__spaner").classList.remove("sidedrawer__spaner--active");
-    }, false);
+document.querySelectorAll('.sidedrawer__link, .sidedrawer__spaner').forEach(function(element) {
+    element.addEventListener(
+        'click',
+        function() {
+            document.querySelector('.sidedrawer').classList.remove('sidedrawer--active');
+            document.querySelector('.sidedrawer__spaner').classList.remove('sidedrawer__spaner--active');
+        },
+        false
+    );
 });
 
 //Triggers the projects slider
-document.querySelector(".projects__icon--left").addEventListener("click", function () {
-    projectsSlider("left");
-}, false);
+document.querySelector('.projects__icon--left').addEventListener(
+    'click',
+    function() {
+        projectsSlider('left');
+    },
+    false
+);
 
-document.querySelector(".projects__icon--right").addEventListener("click", function () {
-    projectsSlider("right");
-}, false);
+document.querySelector('.projects__icon--right').addEventListener(
+    'click',
+    function() {
+        projectsSlider('right');
+    },
+    false
+);
 
 /**
  * Controls the appBarHandler calls
@@ -83,7 +119,7 @@ function setUserScrolled() {
 }
 
 //Calls the appbarHandler every 100ms when the scroll event gets triggered
-setInterval(function () {
+setInterval(function() {
     if (userScrolled) {
         userScrolled = false;
         appBarHandler();
@@ -98,10 +134,10 @@ setInterval(function () {
  * Checks wether the Fixbar has to be active and displays or removes it
  */
 function appBarHandler() {
-    if (document.querySelector(".appbar").offsetTop <= getScrollTop()) {
-        document.querySelector(".fixbar").classList.add("fixbar--active");
-    } else if (document.querySelector(".appbar").offsetTop >= getScrollTop()) {
-        document.querySelector(".fixbar").classList.remove("fixbar--active");
+    if (document.querySelector('.appbar').offsetTop <= getScrollTop()) {
+        document.querySelector('.fixbar').classList.add('fixbar--active');
+    } else if (document.querySelector('.appbar').offsetTop >= getScrollTop()) {
+        document.querySelector('.fixbar').classList.remove('fixbar--active');
     }
 }
 
@@ -110,10 +146,10 @@ function appBarHandler() {
  * @return scrollTop value
  */
 function getScrollTop() {
-    if (document.querySelector("body").scrollTop != 0) {
-        return document.querySelector("body").scrollTop;
-    } else if (document.querySelector("html").scrollTop != 0) {
-        return document.querySelector("html").scrollTop;
+    if (document.querySelector('body').scrollTop != 0) {
+        return document.querySelector('body').scrollTop;
+    } else if (document.querySelector('html').scrollTop != 0) {
+        return document.querySelector('html').scrollTop;
     } else {
         return 0;
     }
@@ -121,24 +157,24 @@ function getScrollTop() {
 
 /**
  * Checks the contactformular for invalid inputs
- * @param {Event} event 
+ * @param {Event} event
  */
 function contactHandler(event) {
     event.preventDefault();
-    var name = document.querySelector("#name").value;
-    var email = document.querySelector("#email").value;
-    var message = document.querySelector("#message").value;
-    var feedbackField = document.querySelector(".contact__feedback");
+    var name = document.querySelector('#name').value;
+    var email = document.querySelector('#email').value;
+    var message = document.querySelector('#message').value;
+    var feedbackField = document.querySelector('.contact__feedback');
 
     if (name.length < 1 || email.length < 1 || message.length < 1) {
-        feedbackField.innerHTML = "No empty inputs allowed!";
-        feedbackField.style.color = "rgba(255, 152, 0, 0.87)";
+        feedbackField.innerHTML = 'No empty inputs allowed!';
+        feedbackField.style.color = 'rgba(255, 152, 0, 0.87)';
     } else if (!validateName(name)) {
-        feedbackField.innerHTML = "Please enter a valid name!";
-        feedbackField.style.color = "rgba(255, 152, 0, 0.87)";
+        feedbackField.innerHTML = 'Please enter a valid name!';
+        feedbackField.style.color = 'rgba(255, 152, 0, 0.87)';
     } else if (!validateEmail(email)) {
-        feedbackField.innerHTML = "Please enter a valid email!";
-        feedbackField.style.color = "rgba(255, 152, 0, 0.87)";
+        feedbackField.innerHTML = 'Please enter a valid email!';
+        feedbackField.style.color = 'rgba(255, 152, 0, 0.87)';
     } else {
         sendMail(name, email, message, feedbackField);
     }
@@ -151,8 +187,25 @@ function contactHandler(event) {
  * @param {string} message Contact message value
  * @param {Element} feedbackField The Feedbackfield
  */
-function sendMail(name, email, message, feedbackField) {
-    alert('Contact Form is currently deactivated. Please use the email link.');
+async function sendMail(name, email, message, feedbackField) {
+    const paramString = 'name=' + name + '&email=' + email + '&message=' + message + '&token=' + token;
+    const formData = new URLSearchParams(paramString);
+
+    const response = await fetch(document.querySelector('.contact__form').getAttribute('action'), {
+        method: 'POST',
+        body: formData
+    });
+
+    if (response.ok) {
+        feedbackField.innerHTML = 'Success: Email has been send!';
+        feedbackField.style.color = 'rgba(76, 175, 80, 0.87)';
+        document.querySelector('#name').value = '';
+        document.querySelector('#email').value = '';
+        document.querySelector('#message').value = '';
+    } else {
+        feedbackField.innerHTML = 'Error: Email could not been send!';
+        feedbackField.style.color = 'rgba(244, 67, 54, 0.87)';
+    }
     // if (typeof token !== 'undefined' && token !== oldToken) {
     //     var request = new XMLHttpRequest();
     //     request.open("POST", "_assets/php/sendMail.php", true);
@@ -190,7 +243,7 @@ function sendMail(name, email, message, feedbackField) {
 /**
  * Checks if an email has a valid pattern (abc@abc.de)
  * @param {string} email Email which should get tested
- * @return {boolean} Returns true if the email is valid 
+ * @return {boolean} Returns true if the email is valid
  */
 function validateEmail(email) {
     var pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -202,7 +255,7 @@ function validateEmail(email) {
  * The name must be at least one char long and can contain letters and spaces
  * @param {string} name The name which should get tested
  * @return {boolean} Returns true if the name is valid
- *  
+ *
  */
 function validateName(name) {
     var pattern = /^[A-Za-z ]{1,}$/;
@@ -220,9 +273,9 @@ function scrollHandler(scrollTop, target, duration) {
         return;
     }
     var difference = target - scrollTop;
-    var perTick = difference / duration * 10;
+    var perTick = (difference / duration) * 10;
 
-    setTimeout(function () {
+    setTimeout(function() {
         window.scrollTo(0, scrollTop + perTick);
         if (scrollTop === target) {
             return;
@@ -238,52 +291,52 @@ function positionHandler() {
     var scrollTop = getScrollTop();
     var topMargin = 100;
     if (window.innerWidth < 700) {
-        if (scrollTop >= document.querySelector("#home").offsetTop - topMargin) {
-            document.querySelector(".fixbar__header-span").innerHTML = "home";
+        if (scrollTop >= document.querySelector('#home').offsetTop - topMargin) {
+            document.querySelector('.fixbar__header-span').innerHTML = 'home';
         }
-        if (scrollTop >= document.querySelector("#about").offsetTop - topMargin) {
-            document.querySelector(".fixbar__header-span").innerHTML = "about";
+        if (scrollTop >= document.querySelector('#about').offsetTop - topMargin) {
+            document.querySelector('.fixbar__header-span').innerHTML = 'about';
         }
-        if (scrollTop >= document.querySelector("#blog").offsetTop - topMargin) {
-            document.querySelector(".fixbar__header-span").innerHTML = "blog";
+        if (scrollTop >= document.querySelector('#blog').offsetTop - topMargin) {
+            document.querySelector('.fixbar__header-span').innerHTML = 'blog';
         }
-        if (scrollTop >= document.querySelector("#projects").offsetTop - topMargin) {
-            document.querySelector(".fixbar__header-span").innerHTML = "projects";
+        if (scrollTop >= document.querySelector('#projects').offsetTop - topMargin) {
+            document.querySelector('.fixbar__header-span').innerHTML = 'projects';
         }
-        if (scrollTop >= document.querySelector("#offer").offsetTop - topMargin) {
-            document.querySelector(".fixbar__header-span").innerHTML = "offer";
+        if (scrollTop >= document.querySelector('#offer').offsetTop - topMargin) {
+            document.querySelector('.fixbar__header-span').innerHTML = 'offer';
         }
-        if (scrollTop >= document.querySelector("#contact").offsetTop - topMargin) {
-            document.querySelector(".fixbar__header-span").innerHTML = "contact";
+        if (scrollTop >= document.querySelector('#contact').offsetTop - topMargin) {
+            document.querySelector('.fixbar__header-span').innerHTML = 'contact';
         }
     } else {
-        if (scrollTop >= document.querySelector("#home").offsetTop - topMargin) {
-            document.querySelector("#linkHome").classList.add("fixbar__link--active");
-            document.querySelector("#linkAbout").classList.remove("fixbar__link--active");
+        if (scrollTop >= document.querySelector('#home').offsetTop - topMargin) {
+            document.querySelector('#linkHome').classList.add('fixbar__link--active');
+            document.querySelector('#linkAbout').classList.remove('fixbar__link--active');
         }
-        if (scrollTop >= document.querySelector("#about").offsetTop - topMargin) {
-            document.querySelector("#linkAbout").classList.add("fixbar__link--active");
-            document.querySelector("#linkHome").classList.remove("fixbar__link--active");
-            document.querySelector("#linkBlog").classList.remove("fixbar__link--active");
+        if (scrollTop >= document.querySelector('#about').offsetTop - topMargin) {
+            document.querySelector('#linkAbout').classList.add('fixbar__link--active');
+            document.querySelector('#linkHome').classList.remove('fixbar__link--active');
+            document.querySelector('#linkBlog').classList.remove('fixbar__link--active');
         }
-        if (scrollTop >= document.querySelector("#blog").offsetTop - topMargin) {
-            document.querySelector("#linkBlog").classList.add("fixbar__link--active");
-            document.querySelector("#linkAbout").classList.remove("fixbar__link--active");
-            document.querySelector("#linkProjects").classList.remove("fixbar__link--active");
+        if (scrollTop >= document.querySelector('#blog').offsetTop - topMargin) {
+            document.querySelector('#linkBlog').classList.add('fixbar__link--active');
+            document.querySelector('#linkAbout').classList.remove('fixbar__link--active');
+            document.querySelector('#linkProjects').classList.remove('fixbar__link--active');
         }
-        if (scrollTop >= document.querySelector("#projects").offsetTop - topMargin) {
-            document.querySelector("#linkProjects").classList.add("fixbar__link--active");
-            document.querySelector("#linkBlog").classList.remove("fixbar__link--active");
-            document.querySelector("#linkOffer").classList.remove("fixbar__link--active");
+        if (scrollTop >= document.querySelector('#projects').offsetTop - topMargin) {
+            document.querySelector('#linkProjects').classList.add('fixbar__link--active');
+            document.querySelector('#linkBlog').classList.remove('fixbar__link--active');
+            document.querySelector('#linkOffer').classList.remove('fixbar__link--active');
         }
-        if (scrollTop >= document.querySelector("#offer").offsetTop - topMargin) {
-            document.querySelector("#linkOffer").classList.add("fixbar__link--active");
-            document.querySelector("#linkProjects").classList.remove("fixbar__link--active");
-            document.querySelector("#linkContact").classList.remove("fixbar__link--active");
+        if (scrollTop >= document.querySelector('#offer').offsetTop - topMargin) {
+            document.querySelector('#linkOffer').classList.add('fixbar__link--active');
+            document.querySelector('#linkProjects').classList.remove('fixbar__link--active');
+            document.querySelector('#linkContact').classList.remove('fixbar__link--active');
         }
-        if (scrollTop >= document.querySelector("#contact").offsetTop - topMargin) {
-            document.querySelector("#linkContact").classList.add("fixbar__link--active");
-            document.querySelector("#linkOffer").classList.remove("fixbar__link--active");
+        if (scrollTop >= document.querySelector('#contact').offsetTop - topMargin) {
+            document.querySelector('#linkContact').classList.add('fixbar__link--active');
+            document.querySelector('#linkOffer').classList.remove('fixbar__link--active');
         }
     }
 }
@@ -297,7 +350,7 @@ async function getProjects() {
         const response = await fetch('./_assets/content/projects.json');
         const data = await response.json();
         return projectsHandler(data);
-    } catch(e) {
+    } catch (e) {
         console.error(e);
     }
     // if (typeof token !== 'undefined' && token !== oldToken) {
@@ -325,56 +378,56 @@ async function getProjects() {
  * @param {Object} data the data received from the server
  */
 function projectsHandler(data) {
-    var projectsContainer = document.querySelector("#projects");
+    var projectsContainer = document.querySelector('#projects');
     //X loops over every project so a card is generated for every project
     for (var x = 0; x < data.length; x++) {
         //Creates needed elements
-        var card = document.createElement("div");
-        card.setAttribute("class", "projects__card card");
+        var card = document.createElement('div');
+        card.setAttribute('class', 'projects__card card');
 
-        var imageContainer = document.createElement("div");
-        imageContainer.setAttribute("class", "projects__image-container");
-        imageContainer.setAttribute("style", "background-image: url(_assets/img/projects/" + data[x].image + ")");
+        var imageContainer = document.createElement('div');
+        imageContainer.setAttribute('class', 'projects__image-container');
+        imageContainer.setAttribute('style', 'background-image: url(_assets/img/projects/' + data[x].image + ')');
 
-        var headerContainer = document.createElement("div");
-        headerContainer.setAttribute("class", "projects__header-container");
+        var headerContainer = document.createElement('div');
+        headerContainer.setAttribute('class', 'projects__header-container');
 
-        var header = document.createElement("h4");
-        header.setAttribute("class", "projects__header");
+        var header = document.createElement('h4');
+        header.setAttribute('class', 'projects__header');
         header.appendChild(document.createTextNode(data[x].title));
 
-        var projectsRow = document.createElement("div");
-        projectsRow.setAttribute("class", "projects__info-row");
+        var projectsRow = document.createElement('div');
+        projectsRow.setAttribute('class', 'projects__info-row');
 
-        var infoTextCategory = document.createElement("h5");
-        infoTextCategory.setAttribute("class", "projects__info-text");
-        infoTextCategory.appendChild(document.createTextNode("Category: "));
+        var infoTextCategory = document.createElement('h5');
+        infoTextCategory.setAttribute('class', 'projects__info-text');
+        infoTextCategory.appendChild(document.createTextNode('Category: '));
 
-        var infoTextDate = document.createElement("h5");
-        infoTextDate.setAttribute("class", "projects__info-text");
-        infoTextDate.appendChild(document.createTextNode("Date: "));
+        var infoTextDate = document.createElement('h5');
+        infoTextDate.setAttribute('class', 'projects__info-text');
+        infoTextDate.appendChild(document.createTextNode('Date: '));
 
-        var infoTextLink = document.createElement("h5");
-        infoTextLink.setAttribute("class", "projects__info-text");
-        infoTextLink.appendChild(document.createTextNode("Link: "));
+        var infoTextLink = document.createElement('h5');
+        infoTextLink.setAttribute('class', 'projects__info-text');
+        infoTextLink.appendChild(document.createTextNode('Link: '));
 
-        var textSpanCategory = document.createElement("span");
-        textSpanCategory.setAttribute("class", "projects__info-text projects__info-text--faded");
+        var textSpanCategory = document.createElement('span');
+        textSpanCategory.setAttribute('class', 'projects__info-text projects__info-text--faded');
         textSpanCategory.appendChild(document.createTextNode(data[x].category));
 
-        var textSpanDate = document.createElement("span");
-        textSpanDate.setAttribute("class", "projects__info-text projects__info-text--faded");
+        var textSpanDate = document.createElement('span');
+        textSpanDate.setAttribute('class', 'projects__info-text projects__info-text--faded');
         textSpanDate.appendChild(document.createTextNode(data[x].date));
 
-        var textSpanLink = document.createElement("a");
-        textSpanLink.setAttribute("class", "projects__info-text projects__info-text--faded projects__info-text--link");
-        textSpanLink.setAttribute("href", data[x].link);
-        textSpanLink.setAttribute("target", "_blank");
-        textSpanLink.setAttribute("rel", "noopener");
+        var textSpanLink = document.createElement('a');
+        textSpanLink.setAttribute('class', 'projects__info-text projects__info-text--faded projects__info-text--link');
+        textSpanLink.setAttribute('href', data[x].link);
+        textSpanLink.setAttribute('target', '_blank');
+        textSpanLink.setAttribute('rel', 'noopener');
         textSpanLink.appendChild(document.createTextNode(data[x].link));
 
-        var text = document.createElement("p");
-        text.setAttribute("class", "projects__text");
+        var text = document.createElement('p');
+        text.setAttribute('class', 'projects__text');
         text.appendChild(document.createTextNode(data[x].text));
 
         //Build the DOM
@@ -395,8 +448,8 @@ function projectsHandler(data) {
 
         projectsContainer.appendChild(card);
     }
-    var cardList = document.querySelectorAll(".projects__card");
-    cardList[0].classList.add("projects__card--active");
+    var cardList = document.querySelectorAll('.projects__card');
+    cardList[0].classList.add('projects__card--active');
     createProjectsDots(cardList);
 }
 
@@ -406,15 +459,15 @@ function projectsHandler(data) {
  */
 function createProjectsDots(cardList) {
     for (var x = 0; x < cardList.length; x++) {
-        var dotContainer = document.createElement("div");
-        dotContainer.setAttribute("class", "projects__dot-container");
+        var dotContainer = document.createElement('div');
+        dotContainer.setAttribute('class', 'projects__dot-container');
         for (var y = 0; y < cardList.length; y++) {
-            var dot = document.createElement("div");
-            dot.setAttribute("class", "projects__dot");
+            var dot = document.createElement('div');
+            dot.setAttribute('class', 'projects__dot');
             dotContainer.appendChild(dot);
         }
         cardList[x].appendChild(dotContainer);
-        document.querySelectorAll(".projects__dot-container")[x].childNodes[x].classList.add("projects__dot--active");
+        document.querySelectorAll('.projects__dot-container')[x].childNodes[x].classList.add('projects__dot--active');
     }
 }
 
@@ -423,26 +476,26 @@ function createProjectsDots(cardList) {
  * @param {string} direction The direction the projects card has to slide
  */
 function projectsSlider(direction) {
-    var cards = document.querySelectorAll(".projects__card");
+    var cards = document.querySelectorAll('.projects__card');
     for (var n = 0; n < cards.length; n++) {
-        if (cards[n].classList.contains("projects__card--active")) {
-            cards[n].classList.remove("projects__card--active");
+        if (cards[n].classList.contains('projects__card--active')) {
+            cards[n].classList.remove('projects__card--active');
 
-            if (direction === "left") {
+            if (direction === 'left') {
                 //Jumps to the end if we are already displaying the first image
                 if (n == 0) {
-                    cards[cards.length - 1].classList.add("projects__card--active");
+                    cards[cards.length - 1].classList.add('projects__card--active');
                     break;
                 }
-                cards[n - 1].classList.add("projects__card--active");
+                cards[n - 1].classList.add('projects__card--active');
                 break;
-            } else if (direction === "right") {
+            } else if (direction === 'right') {
                 //Jumps to the beginning if we are already displaying the last image
                 if (n == cards.length - 1) {
-                    cards[0].classList.add("projects__card--active");
+                    cards[0].classList.add('projects__card--active');
                     break;
                 }
-                cards[n + 1].classList.add("projects__card--active");
+                cards[n + 1].classList.add('projects__card--active');
                 break;
             }
         }
