@@ -188,7 +188,7 @@ function contactHandler(event) {
  * @param {Element} feedbackField The Feedbackfield
  */
 async function sendMail(name, email, message, feedbackField) {
-    const paramString = 'name=' + name + '&email=' + email + '&message=' + message + '&token=' + token;
+    const paramString = 'name=' + name + '&email=' + email + '&message=' + message;
     const formData = new URLSearchParams(paramString);
 
     const response = await fetch(document.querySelector('.contact__form').getAttribute('action'), {
