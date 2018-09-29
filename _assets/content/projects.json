@@ -1,0 +1,34 @@
+[
+    {
+        "title": "Project Lighthouse",
+        "date": "March, 2018",
+        "image": "project-lighthouse.jpg",
+        "category": "Java Game",
+        "link": "https://github.com/christoph-fricke/project-lighthouse",
+        "text": "This project was completed as a task given from university. The goal was to create a implementation of breakout that is playable on a so called lighthouse. The project is done together with a fellow student. We went a little bit further and added a little end boss to our implementation. The game can be played at a computer or at the lighthouse. The game is developed in Java using the ACM library to display graphics."
+    },
+    {
+        "title": "Pioneers",
+        "date": "March, 2017",
+        "image": "shpioneers.jpg",
+        "category": "Website",
+        "link": "http://shpioneers.de",
+        "text": "A website I built together with a friend for one of our school teams. They are competing in the contest \"F1 in schools\". We designed and built the website, so they can use it for marketing and presentation purposes. For this project I mainly was responsible for designing and creating the front end of the website, for the most time following the \"Material Design\" guidelines. We used technologies like HTML5, CSS3, jQuery and PHP."
+    },
+    {
+        "title": "My Website V1",
+        "date": "January, 2017",
+        "image": "christoph-fricke-v1.jpg",
+        "category": "Website",
+        "link": "https://christoph-fricke.de/v1",
+        "text": "This is the first version of my website. It was one of the first websites I created from scratch using only HTML, CSS, JS and PhP. This website is still fully functional expect the contact form which will not send data to the server. You can use the form on at the bottom if you wish to contact me.  "
+    },
+    {
+        "title": "OnlyBytes",
+        "date": "May, 2016",
+        "image": "onlybytes.jpg",
+        "category": "Website",
+        "link": "https://onlybytes.net",
+        "text": "This is my first ever created website. The project itself failed but it set a milestone in my web-development career. It got me into web-development and after this I got a deeper understanding of how to create a website from scratch. I created this website with Bootstrap and used code from various templates to create the layout I wanted since my understanding of CSS was not very good at this point in time."
+    }
+]

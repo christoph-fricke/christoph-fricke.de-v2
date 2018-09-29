@@ -1,56 +1,17 @@
-var token;
-var oldToken;
-
 document.addEventListener("DOMContentLoaded", function () {
-    getToken();
+    document.querySelector('.footer__copy').innerHTML = `&copy; ${new Date().getFullYear()}, Christoph Fricke`;
     getBlogs();
 }, false);
-
-/**
- * Request a security token from the server and sets it as the global variable token.
- */
-function getToken() {
-    oldToken = token;
-    var request = new XMLHttpRequest();
-    request.open("POST", "../_assets/php/getToken.php", true);
-    request.send();
-    request.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            token = request.responseText;
-        }
-    };
-}
 
 /**
  * Request all blog entries from the server and parses them to blogHandler()
  */
 function getBlogs() {
-    if (typeof token !== 'undefined' && token !== oldToken) {
-        var response;
-        var request = new XMLHttpRequest();
-        request.open("POST", "../_assets/php/getBlogs.php", true);
-        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        request.send("token=" + token);
-        request.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                getToken();
-                if (request.responseText[0] != "[") {
-                    response = [];
-                } else {
-                    response = JSON.parse(this.responseText);
-                }
-                blogHandler(response);
-            }
-        };
-    } else {
-        setTimeout(function () {
-            getBlogs();
-        }, 50);
-    }
+    blogHandler([]);
 }
 
 /**
- * Inserts the recieves blogs into the page. Inserts an errorMessage if there are no blog entries
+ * Inserts the received blogs into the page. Inserts an errorMessage if there are no blog entries
  * @param {Object} data 
  */
 function blogHandler(data) {

@@ -1,5 +1,3 @@
-var token;
-var oldToken;
 var userScrolled;
 var pageScrolled;
 
@@ -12,7 +10,6 @@ if (isIE || !CSS.supports('display', 'grid')) {
 
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelector('.footer__copy').innerHTML = `&copy; ${new Date().getFullYear()}, Christoph Fricke`;
-    getToken();
     getProjects();
     // Handles the Fixbar handling depending on the window-size on load
     if (window.innerWidth > 520) {
@@ -123,21 +120,6 @@ function getScrollTop() {
 }
 
 /**
- * Request a security token from the server and sets it as the global variable token.
- */
-function getToken() {
-    oldToken = token;
-    var request = new XMLHttpRequest();
-    request.open("POST", "_assets/php/getToken.php", true);
-    request.send();
-    request.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            token = request.responseText;
-        }
-    };
-}
-
-/**
  * Checks the contactformular for invalid inputs
  * @param {Event} event 
  */
@@ -170,38 +152,39 @@ function contactHandler(event) {
  * @param {Element} feedbackField The Feedbackfield
  */
 function sendMail(name, email, message, feedbackField) {
-    if (typeof token !== 'undefined' && token !== oldToken) {
-        var request = new XMLHttpRequest();
-        request.open("POST", "_assets/php/sendMail.php", true);
-        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        request.send("name=" + name + "&email=" + email + "&message=" + message + "&token=" + token);
-        request.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                getToken();
-                switch (this.responseText) {
-                    case "1":
-                        feedbackField.innerHTML = "Success: Email has been send!";
-                        feedbackField.style.color = "rgba(76, 175, 80, 0.87)";
-                        document.querySelector("#name").value = "";
-                        document.querySelector("#email").value = "";
-                        document.querySelector("#message").value = "";
-                        break;
-                    case "0":
-                        feedbackField.innerHTML = "Error: Email could not been send!";
-                        feedbackField.style.color = "rgba(244, 67, 54, 0.87)";
-                        break;
-                    default:
-                        feedbackField.innerHTML = "Error: Email could not been send!";
-                        feedbackField.style.color = "rgba(244, 67, 54, 0.87)";
-                        break;
-                }
-            }
-        };
-    } else {
-        setTimeout(function () {
-            sendMail(name, email, message, feedbackField);
-        }, 50);
-    }
+    alert('Contact Form is currently deactivated. Please use the email link.');
+    // if (typeof token !== 'undefined' && token !== oldToken) {
+    //     var request = new XMLHttpRequest();
+    //     request.open("POST", "_assets/php/sendMail.php", true);
+    //     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    //     request.send("name=" + name + "&email=" + email + "&message=" + message + "&token=" + token);
+    //     request.onreadystatechange = function () {
+    //         if (this.readyState == 4 && this.status == 200) {
+    //             getToken();
+    //             switch (this.responseText) {
+    //                 case "1":
+    //                     feedbackField.innerHTML = "Success: Email has been send!";
+    //                     feedbackField.style.color = "rgba(76, 175, 80, 0.87)";
+    //                     document.querySelector("#name").value = "";
+    //                     document.querySelector("#email").value = "";
+    //                     document.querySelector("#message").value = "";
+    //                     break;
+    //                 case "0":
+    //                     feedbackField.innerHTML = "Error: Email could not been send!";
+    //                     feedbackField.style.color = "rgba(244, 67, 54, 0.87)";
+    //                     break;
+    //                 default:
+    //                     feedbackField.innerHTML = "Error: Email could not been send!";
+    //                     feedbackField.style.color = "rgba(244, 67, 54, 0.87)";
+    //                     break;
+    //             }
+    //         }
+    //     };
+    // } else {
+    //     setTimeout(function () {
+    //         sendMail(name, email, message, feedbackField);
+    //     }, 50);
+    // }
 }
 
 /**
@@ -309,30 +292,37 @@ function positionHandler() {
  * Request the projects from the server. Call getProjectsTest for testing
  * @return Object containing all projects
  */
-function getProjects() {
-    if (typeof token !== 'undefined' && token !== oldToken) {
-        var response;
-        var request = new XMLHttpRequest();
-        request.open("POST", "_assets/php/getProjects.php", true);
-        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        request.send("token=" + token);
-        request.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                getToken();
-                response = JSON.parse(this.responseText);
-                projectsHandler(response);
-            }
-        };
-    } else {
-        setTimeout(function () {
-            getProjects();
-        }, 50);
+async function getProjects() {
+    try {
+        const response = await fetch('./_assets/content/projects.json');
+        const data = await response.json();
+        return projectsHandler(data);
+    } catch(e) {
+        console.error(e);
     }
+    // if (typeof token !== 'undefined' && token !== oldToken) {
+    //     var response;
+    //     var request = new XMLHttpRequest();
+    //     request.open("POST", "_assets/php/getProjects.php", true);
+    //     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    //     request.send("token=" + token);
+    //     request.onreadystatechange = function () {
+    //         if (this.readyState == 4 && this.status == 200) {
+    //             getToken();
+    //             response = JSON.parse(this.responseText);
+    //             projectsHandler(response);
+    //         }
+    //     };
+    // } else {
+    //     setTimeout(function () {
+    //         getProjects();
+    //     }, 50);
+    // }
 }
 
 /**
- * Inserts the data recieved from the server into the page
- * @param {Object} data the data recieved from the server
+ * Inserts the data received from the server into the page
+ * @param {Object} data the data received from the server
  */
 function projectsHandler(data) {
     var projectsContainer = document.querySelector("#projects");
